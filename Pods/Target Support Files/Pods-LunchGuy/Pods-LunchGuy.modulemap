@@ -1,0 +1,6 @@
+framework module Pods_LunchGuy {
+  umbrella header "Pods-LunchGuy-umbrella.h"
+
+  export *
+  module * { export * }
+}
