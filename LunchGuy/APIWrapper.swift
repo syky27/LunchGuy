@@ -9,7 +9,7 @@
 
 import Foundation
 import Alamofire
-
+import SwiftyJSON
 
 class APIWrapper {
 
@@ -38,7 +38,7 @@ class APIWrapper {
 		var path: String {
 			switch self {
 			case .Restaurants:
-				return "/restaurants/"
+				return "/restaurants.json "
 			case .Menu(let restaurant):
 				return "/restaurants/\(restaurant.restaurantID)U Pětníka/menu.json"
 			}
@@ -68,9 +68,8 @@ class APIWrapper {
 				switch response.result {
 				case .Success:
 					if let networkingData = response.data{
-//						let json = JSON(data:networkingData)
-
-
+						let json = JSON(data:networkingData)
+						print(json)
 					}
 				case .Failure:
 					completion(error: NSError(domain: "Networking", code: 1, userInfo: nil))
