@@ -4,8 +4,19 @@
 target 'LunchGuy' do
   # Comment this line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
+  
+  # NETWORKING
   pod 'Alamofire'
   pod 'SwiftyJSON'
+
+  # FABRIC
+  pod 'Fabric'
+  pod 'Crashlytics'
+
+  # REALM
+  pod 'RealmSwift'
+  pod 'SwiftFetchedResultsController'
+  
   target 'LunchGuyTests' do
     inherit! :search_paths
     # Pods for testing
