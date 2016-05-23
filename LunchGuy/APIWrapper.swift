@@ -38,9 +38,9 @@ class APIWrapper {
 		var path: String {
 			switch self {
 			case .Restaurants:
-				return "/restaurants.json "
+				return "/restaurants.json"
 			case .Menu(let restaurant):
-				return "/restaurants/\(restaurant.restaurantID)U Pětníka/menu.json"
+				return "/restaurants/\(restaurant.restaurantID)/menu.json"
 			}
 		}
 
@@ -62,6 +62,29 @@ class APIWrapper {
 
 	func getRestaurants(completion: (error: NSError?)->()) {
 		Alamofire.request(Router.Restaurants)
+			.validate(statusCode: 200..<300)
+			.validate(contentType: ["application/json"])
+			.responseJSON { response in
+				switch response.result {
+				case .Success:
+					if let networkingData = response.data{
+						let json = JSON(data:networkingData)
+						let restaurant = Restaurant()
+						restaurant.restaurantID = json.arrayObject?.first as! String
+						self.getMenuForRestaurant(restaurant, completion: { (error) in
+							print(error)
+						})
+						print(json)
+					}
+				case .Failure:
+					completion(error: NSError(domain: "Networking", code: 1, userInfo: nil))
+
+				}
+		}
+	}
+
+	func getMenuForRestaurant(restaurant: Restaurant, completion: (error: NSError?)->()) {
+		Alamofire.request(Router.Menu(restaurant: restaurant))
 			.validate(statusCode: 200..<300)
 			.validate(contentType: ["application/json"])
 			.responseJSON { response in
