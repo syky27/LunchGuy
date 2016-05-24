@@ -115,7 +115,9 @@ class APIWrapper {
 									meal.name = obj.first!.1.rawString()!
 									meal.price = obj[1].rawValue as? Int ?? 0
 									meal.type = content.0
-									realm.add(meal)
+									meal.restaurantID = restaurant.restaurantID
+									meal.mealID = meal.restaurantID + meal.name
+									realm.add(meal, update: true)
 									menu.meals.append(meal)
 								}
 							}

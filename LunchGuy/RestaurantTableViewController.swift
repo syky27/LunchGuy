@@ -45,4 +45,10 @@ class RestaurantTableViewController: UITableViewController {
         return cell
     }
 
+	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+		let menuViewController = MenuTableViewController()
+		menuViewController.restaurantID = restaurants[indexPath.row].restaurantID
+		navigationController?.pushViewController(menuViewController, animated: true)
+	}
+
 }

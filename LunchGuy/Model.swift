@@ -29,8 +29,14 @@ class Menu: Object {
 }
 
 class Meal: Object {
+	dynamic var mealID = ""
 	dynamic var type = ""
 	dynamic var name = ""
 	dynamic var price = 0
+	dynamic var restaurantID = ""
+
+	override static func primaryKey() -> String? {
+		return "mealID"
+	}
 }
 

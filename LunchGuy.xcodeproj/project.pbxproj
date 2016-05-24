@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2085320DD5DC579F5868699A /* Pods_LunchGuyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46242A0D246587309CC58535 /* Pods_LunchGuyUITests.framework */; };
 		351CFA781CF3D96F00D4146A /* RestaurantTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351CFA771CF3D96F00D4146A /* RestaurantTableViewController.swift */; };
+		351CFA7A1CF3DD9E00D4146A /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351CFA791CF3DD9E00D4146A /* MenuTableViewController.swift */; };
 		3525C0CE1CF3BA7F002114A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525C0CD1CF3BA7F002114A6 /* AppDelegate.swift */; };
 		3525C0D01CF3BA7F002114A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525C0CF1CF3BA7F002114A6 /* ViewController.swift */; };
 		3525C0D31CF3BA7F002114A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3525C0D11CF3BA7F002114A6 /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 		02C345D6F55F5B2D9E1DD44E /* Pods-LunchGuyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LunchGuyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LunchGuyTests/Pods-LunchGuyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		19F03A6E386F819E4353682F /* Pods_LunchGuy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LunchGuy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		351CFA771CF3D96F00D4146A /* RestaurantTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewController.swift; sourceTree = "<group>"; };
+		351CFA791CF3DD9E00D4146A /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		3525C0CA1CF3BA7F002114A6 /* LunchGuy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LunchGuy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3525C0CD1CF3BA7F002114A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3525C0CF1CF3BA7F002114A6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				351CFA771CF3D96F00D4146A /* RestaurantTableViewController.swift */,
+				351CFA791CF3DD9E00D4146A /* MenuTableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -473,6 +476,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3525C1061CF3C2EA002114A6 /* Model.swift in Sources */,
+				351CFA7A1CF3DD9E00D4146A /* MenuTableViewController.swift in Sources */,
 				3525C0D01CF3BA7F002114A6 /* ViewController.swift in Sources */,
 				351CFA781CF3D96F00D4146A /* RestaurantTableViewController.swift in Sources */,
 				3525C1091CF3C6FE002114A6 /* NSDate+LunchGuy.swift in Sources */,
