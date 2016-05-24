@@ -3,3 +3,7 @@ A simple application for retrieving lunch menus of selected restaurants using ht
 
 #Screenshots
 
+![1](https://raw.githubusercontent.com/syky27/lunch_guy-ios/dev/screenshots/2.png)
+
+
+![2](https://raw.githubusercontent.com/syky27/lunch_guy-ios/dev/screenshots/1.png)
