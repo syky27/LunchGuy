@@ -18,6 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		APIWrapper.instance.getRestaurants { (error) in
 			print(error)
 		}
+		window = UIWindow(frame: UIScreen.mainScreen().bounds)
+		if let window = window {
+			window.backgroundColor = UIColor.whiteColor()
+			window.rootViewController = UINavigationController(rootViewController: RestaurantTableViewController())
+			window.makeKeyAndVisible()
+		}
 		return true
 	}
 
