@@ -17,13 +17,24 @@ class RestaurantTableViewController: UITableViewController {
         super.viewDidLoad()
 		title = "Restaurace"
 		self.tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "reuseIdentifier")
+
+		NSNotificationCenter.defaultCenter()
+			.addObserver(self,
+			             selector: #selector(RestaurantTableViewController.fetchNewData),
+			             name: "updateFinished",
+			             object: nil)
+		fetchNewData()
+    }
+
+	func fetchNewData() {
 		do {
 			let realm = try Realm()
 			restaurants = realm.objects(Restaurant)
+			tableView.reloadData()
 		} catch {
 			print(error)
 		}
-    }
+	}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

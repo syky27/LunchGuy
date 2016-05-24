@@ -124,6 +124,7 @@ class APIWrapper {
 
 							try realm.commitWrite()
 							completion(error: nil)
+							NSNotificationCenter.defaultCenter().postNotificationName("updateFinished", object: nil)
 						} catch (let error as NSError) {
 							completion(error: error)
 						}

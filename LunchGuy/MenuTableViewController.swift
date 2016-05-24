@@ -32,7 +32,17 @@ class MenuTableViewController: UITableViewController {
 		tableView.rowHeight = UITableViewAutomaticDimension
 		tableView.estimatedRowHeight = 44
 
+		NSNotificationCenter.defaultCenter()
+			.addObserver(self,
+			             selector: #selector(MenuTableViewController.reloadTableView),
+			             name: "updateFinished",
+			             object: nil)
+
     }
+
+	func reloadTableView() {
+		tableView.reloadData()
+	}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -49,11 +59,12 @@ class MenuTableViewController: UITableViewController {
 	}
 
 	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier2", forIndexPath: indexPath)
+		let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "reuseIdentifier2")
 		let meal = fetchedResultsController?.objectAtIndexPath(indexPath)
 		cell.textLabel?.text = meal!.name
-		cell.detailTextLabel?.text = "\(meal!.price) Kč"
 		cell.textLabel?.numberOfLines = 0
+		cell.textLabel?.frame = CGRectMake(cell.textLabel!.frame.origin.x, cell.textLabel!.frame.origin.y, 50, cell.textLabel!.frame.size.height);
+		cell.detailTextLabel?.text = "\(meal!.price) Kč"
 
 		return cell
 	}
