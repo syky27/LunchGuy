@@ -10,6 +10,7 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
+import RealmSwift
 
 class APIWrapper {
 
@@ -59,7 +60,6 @@ class APIWrapper {
 		}
 	}
 
-
 	func getRestaurants(completion: (error: NSError?)->()) {
 		Alamofire.request(Router.Restaurants)
 			.validate(statusCode: 200..<300)
@@ -69,12 +69,14 @@ class APIWrapper {
 				case .Success:
 					if let networkingData = response.data{
 						let json = JSON(data:networkingData)
-						let restaurant = Restaurant()
-						restaurant.restaurantID = json.arrayObject?.first as! String
-						self.getMenuForRestaurant(restaurant, completion: { (error) in
-							print(error)
-						})
-						print(json)
+						for restaurantName in json.arrayObject! {
+							let restaurant = Restaurant()
+							restaurant.restaurantID = restaurantName as! String
+							self.getMenuForRestaurant(restaurant, completion: { (error) in
+								print(error)
+							})
+						}
+
 					}
 				case .Failure:
 					completion(error: NSError(domain: "Networking", code: 1, userInfo: nil))
@@ -92,7 +94,37 @@ class APIWrapper {
 				case .Success:
 					if let networkingData = response.data{
 						let json = JSON(data:networkingData)
-						print(json)
+
+						do {
+							let realm = try Realm()
+							print(Realm.Configuration.defaultConfiguration.fileURL!)
+							realm.beginWrite()
+
+							let restaurant = Restaurant()
+							restaurant.restaurantID = json["data"]["attributes"]["title"].stringValue
+							realm.add(restaurant, update: true)
+
+							let menu = Menu()
+							menu.menuID = json["data"]["attributes"]["title"].stringValue
+							menu.cached = NSDate.dateFromISOString(json["data"]["attributes"]["cached"].stringValue)
+							realm.add(menu, update: true)
+
+							for content in json["data"]["attributes"]["content"].dictionaryValue {
+								for obj in json["data"]["attributes"]["content"][content.0].arrayValue {
+									let meal = Meal()
+									meal.name = obj.first!.1.rawString()!
+									meal.price = obj[1].rawValue as? Int ?? 0
+									meal.type = content.0
+									realm.add(meal)
+									menu.meals.append(meal)
+								}
+							}
+
+							try realm.commitWrite()
+							completion(error: nil)
+						} catch (let error as NSError) {
+							completion(error: error)
+						}
 					}
 				case .Failure:
 					completion(error: NSError(domain: "Networking", code: 1, userInfo: nil))

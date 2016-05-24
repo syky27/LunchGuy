@@ -16,7 +16,8 @@
 		3525C0E31CF3BA7F002114A6 /* LunchGuyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525C0E21CF3BA7F002114A6 /* LunchGuyTests.swift */; };
 		3525C0EE1CF3BA7F002114A6 /* LunchGuyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525C0ED1CF3BA7F002114A6 /* LunchGuyUITests.swift */; };
 		3525C0FD1CF3BC2C002114A6 /* APIWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525C0FC1CF3BC2C002114A6 /* APIWrapper.swift */; };
-		3525C1001CF3BDB6002114A6 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525C0FF1CF3BDB6002114A6 /* Restaurant.swift */; };
+		3525C1061CF3C2EA002114A6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525C1051CF3C2EA002114A6 /* Model.swift */; };
+		3525C1091CF3C6FE002114A6 /* NSDate+LunchGuy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525C1081CF3C6FE002114A6 /* NSDate+LunchGuy.swift */; };
 		77E2D65270D1963012342F1F /* Pods_LunchGuyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB8CF7DCE0695EB1DEEE28B7 /* Pods_LunchGuyTests.framework */; };
 		C541A03DE7E076A065DE7119 /* Pods_LunchGuy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F03A6E386F819E4353682F /* Pods_LunchGuy.framework */; };
 /* End PBXBuildFile section */
@@ -55,7 +56,8 @@
 		3525C0ED1CF3BA7F002114A6 /* LunchGuyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchGuyUITests.swift; sourceTree = "<group>"; };
 		3525C0EF1CF3BA7F002114A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3525C0FC1CF3BC2C002114A6 /* APIWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIWrapper.swift; sourceTree = "<group>"; };
-		3525C0FF1CF3BDB6002114A6 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		3525C1051CF3C2EA002114A6 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		3525C1081CF3C6FE002114A6 /* NSDate+LunchGuy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+LunchGuy.swift"; sourceTree = "<group>"; };
 		46242A0D246587309CC58535 /* Pods_LunchGuyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LunchGuyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6215739716A95EC53174EA9D /* Pods-LunchGuyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LunchGuyUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LunchGuyUITests/Pods-LunchGuyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C4072E3BD0DE081841E829EF /* Pods-LunchGuyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LunchGuyUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LunchGuyUITests/Pods-LunchGuyUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 		3525C0CC1CF3BA7F002114A6 /* LunchGuy */ = {
 			isa = PBXGroup;
 			children = (
+				3525C1071CF3C6E9002114A6 /* Helpers */,
 				3525C0FE1CF3BDA1002114A6 /* Model */,
 				3525C0FB1CF3BC21002114A6 /* Services */,
 				3525C0CD1CF3BA7F002114A6 /* AppDelegate.swift */,
@@ -159,9 +162,17 @@
 		3525C0FE1CF3BDA1002114A6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3525C0FF1CF3BDB6002114A6 /* Restaurant.swift */,
+				3525C1051CF3C2EA002114A6 /* Model.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		3525C1071CF3C6E9002114A6 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3525C1081CF3C6FE002114A6 /* NSDate+LunchGuy.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		9595755FA50F98EBD05A8DFA /* Frameworks */ = {
@@ -450,8 +461,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3525C1001CF3BDB6002114A6 /* Restaurant.swift in Sources */,
+				3525C1061CF3C2EA002114A6 /* Model.swift in Sources */,
 				3525C0D01CF3BA7F002114A6 /* ViewController.swift in Sources */,
+				3525C1091CF3C6FE002114A6 /* NSDate+LunchGuy.swift in Sources */,
 				3525C0FD1CF3BC2C002114A6 /* APIWrapper.swift in Sources */,
 				3525C0CE1CF3BA7F002114A6 /* AppDelegate.swift in Sources */,
 			);
