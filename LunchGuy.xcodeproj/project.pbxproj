@@ -219,6 +219,7 @@
 				3525C0C81CF3BA7F002114A6 /* Resources */,
 				87E5CB78068CEFDF3CCCA078 /* 📦 Embed Pods Frameworks */,
 				ABEA4579578290585B7B6A3C /* 📦 Copy Pods Resources */,
+				352802911CF8ABA0003A2700 /* Fabric */,
 			);
 			buildRules = (
 			);
@@ -354,6 +355,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LunchGuyUITests/Pods-LunchGuyUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		352802911CF8ABA0003A2700 /* Fabric */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Fabric;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" dd91786f75cb40ae4bf775ac82d3af8c38f3ef97 79f265a5fd56838a962c4745efc95d52bd061979b51fbe9b5d1c514c19ee73ea";
 		};
 		656F9A83AA9FCF507614796F /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
