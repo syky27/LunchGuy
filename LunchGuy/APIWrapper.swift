@@ -74,6 +74,7 @@ class APIWrapper {
 							restaurant.restaurantID = restaurantName as! String
 							self.getMenuForRestaurant(restaurant, completion: { (error) in
 								print(error)
+								completion(error: error)
 							})
 						}
 
@@ -97,7 +98,6 @@ class APIWrapper {
 
 						do {
 							let realm = try Realm()
-							print(Realm.Configuration.defaultConfiguration.fileURL!)
 							realm.beginWrite()
 
 							let restaurant = Restaurant()
@@ -135,7 +135,6 @@ class APIWrapper {
 				}
 		}
 	}
-
 }
 
 

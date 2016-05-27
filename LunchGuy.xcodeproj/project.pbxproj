@@ -12,9 +12,7 @@
 		351CFA7A1CF3DD9E00D4146A /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351CFA791CF3DD9E00D4146A /* MenuTableViewController.swift */; };
 		3525C0CE1CF3BA7F002114A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525C0CD1CF3BA7F002114A6 /* AppDelegate.swift */; };
 		3525C0D01CF3BA7F002114A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525C0CF1CF3BA7F002114A6 /* ViewController.swift */; };
-		3525C0D31CF3BA7F002114A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3525C0D11CF3BA7F002114A6 /* Main.storyboard */; };
 		3525C0D51CF3BA7F002114A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3525C0D41CF3BA7F002114A6 /* Assets.xcassets */; };
-		3525C0D81CF3BA7F002114A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3525C0D61CF3BA7F002114A6 /* LaunchScreen.storyboard */; };
 		3525C0E31CF3BA7F002114A6 /* LunchGuyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525C0E21CF3BA7F002114A6 /* LunchGuyTests.swift */; };
 		3525C0EE1CF3BA7F002114A6 /* LunchGuyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525C0ED1CF3BA7F002114A6 /* LunchGuyUITests.swift */; };
 		3525C0FD1CF3BC2C002114A6 /* APIWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525C0FC1CF3BC2C002114A6 /* APIWrapper.swift */; };
@@ -49,9 +47,7 @@
 		3525C0CA1CF3BA7F002114A6 /* LunchGuy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LunchGuy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3525C0CD1CF3BA7F002114A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3525C0CF1CF3BA7F002114A6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3525C0D21CF3BA7F002114A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3525C0D41CF3BA7F002114A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3525C0D71CF3BA7F002114A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3525C0D91CF3BA7F002114A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3525C0DE1CF3BA7F002114A6 /* LunchGuyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LunchGuyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3525C0E21CF3BA7F002114A6 /* LunchGuyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchGuyTests.swift; sourceTree = "<group>"; };
@@ -139,9 +135,7 @@
 				3525C0FB1CF3BC21002114A6 /* Services */,
 				3525C0CD1CF3BA7F002114A6 /* AppDelegate.swift */,
 				3525C0CF1CF3BA7F002114A6 /* ViewController.swift */,
-				3525C0D11CF3BA7F002114A6 /* Main.storyboard */,
 				3525C0D41CF3BA7F002114A6 /* Assets.xcassets */,
-				3525C0D61CF3BA7F002114A6 /* LaunchScreen.storyboard */,
 				3525C0D91CF3BA7F002114A6 /* Info.plist */,
 			);
 			path = LunchGuy;
@@ -325,9 +319,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3525C0D81CF3BA7F002114A6 /* LaunchScreen.storyboard in Resources */,
 				3525C0D51CF3BA7F002114A6 /* Assets.xcassets in Resources */,
-				3525C0D31CF3BA7F002114A6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,25 +508,6 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		3525C0D11CF3BA7F002114A6 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3525C0D21CF3BA7F002114A6 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		3525C0D61CF3BA7F002114A6 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3525C0D71CF3BA7F002114A6 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		3525C0F01CF3BA7F002114A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -626,8 +599,10 @@
 			baseConfigurationReference = E6F55551A8E25408DCD24251 /* Pods-LunchGuy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = LunchGuy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cz.ajty.LunchGuy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -639,8 +614,10 @@
 			baseConfigurationReference = CB977E6F098BAF138A2713EE /* Pods-LunchGuy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = LunchGuy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cz.ajty.LunchGuy;
 				PRODUCT_NAME = "$(TARGET_NAME)";

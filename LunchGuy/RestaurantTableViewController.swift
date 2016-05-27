@@ -16,6 +16,12 @@ class RestaurantTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		title = "Restaurace"
+		refreshControl = UIRefreshControl()
+		refreshControl!.backgroundColor = UIColor.whiteColor()
+		refreshControl?.addTarget(self,
+		                          action: #selector(RestaurantTableViewController.downloadNewData),
+		                          forControlEvents: UIControlEvents.ValueChanged)
+
 		self.tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "reuseIdentifier")
 
 		NSNotificationCenter.defaultCenter()
@@ -25,6 +31,18 @@ class RestaurantTableViewController: UITableViewController {
 			             object: nil)
 		fetchNewData()
     }
+
+	func downloadNewData() {
+		APIWrapper.instance.getRestaurants { (error) in
+			self.refreshControl?.endRefreshing()
+			if error != nil {
+				print(error)
+			} else {
+				self.fetchNewData()
+			}
+		}
+
+	}
 
 	func fetchNewData() {
 		do {
