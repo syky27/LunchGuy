@@ -1,8 +1,10 @@
 #!/bin/bash
 
+DENSITY=300 # 300 for best results
+
 icon2png() {
   echo -n "$1: "
-  convert -density "$1" -print "%wx%h\n" icon.svg "$2"
+  convert -density $DENSITY -resize "$1x$1" -print "%wx%h\n" icon.svg "$2"
 }
 
 icon2png 40 "../LunchGuy/Assets.xcassets/AppIcon.appiconset/Icon-40.png"
