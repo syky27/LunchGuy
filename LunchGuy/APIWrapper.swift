@@ -98,6 +98,7 @@ class APIWrapper {
 
 						do {
 							let realm = try Realm()
+                            print(realm.configuration.fileURL?.absoluteString)
 							realm.beginWrite()
 
 							let restaurant = Restaurant()
@@ -108,10 +109,12 @@ class APIWrapper {
 							menu.menuID = json["data"]["attributes"]["title"].stringValue
 							menu.cached = NSDate.dateFromISOString(json["data"]["attributes"]["cached"].stringValue)
 							realm.add(menu, update: true)
-
+                            menu.meals.removeAll()
+                            
 							for content in json["data"]["attributes"]["content"].dictionaryValue {
 								for obj in json["data"]["attributes"]["content"][content.0].arrayValue {
 									let meal = Meal()
+                                    
 									meal.name = obj.first!.1.rawString()!
 									meal.price = obj[1].rawValue as? Int ?? 0
 									meal.type = content.0
