@@ -65,6 +65,7 @@ class MenuTableViewController: UITableViewController {
 		cell.textLabel?.numberOfLines = 0
 		cell.textLabel?.frame = CGRectMake(cell.textLabel!.frame.origin.x, cell.textLabel!.frame.origin.y, 50, cell.textLabel!.frame.size.height);
 		cell.detailTextLabel?.text = "\(meal!.price) Kč"
+        cell.detailTextLabel?.text = meal!.price < 1 ? "Cena není známa" : "\(meal!.price) Kč"
 
 		return cell
 	}

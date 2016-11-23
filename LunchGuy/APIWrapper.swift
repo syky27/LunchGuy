@@ -61,6 +61,14 @@ class APIWrapper {
 	}
 
 	func getRestaurants(completion: (error: NSError?)->()) {
+        do {
+            let realm = try Realm()
+            try realm.write({
+                realm.deleteAll()
+            })
+        }catch (let e) {
+            debugPrint(e)
+        }
 		Alamofire.request(Router.Restaurants)
 			.validate(statusCode: 200..<300)
 			.validate(contentType: ["application/json"])
@@ -105,11 +113,15 @@ class APIWrapper {
 							restaurant.restaurantID = json["data"]["attributes"]["title"].stringValue
 							realm.add(restaurant, update: true)
 
+                            // It is wanted to delete all menus and replace them with new one as new day comes
+//                            let allMenus = realm.objects(Menu)
+//                            realm.delete(allMenus)
+                            
 							let menu = Menu()
 							menu.menuID = json["data"]["attributes"]["title"].stringValue
 							menu.cached = NSDate.dateFromISOString(json["data"]["attributes"]["cached"].stringValue)
 							realm.add(menu, update: true)
-                            menu.meals.removeAll()
+                            
                             
 							for content in json["data"]["attributes"]["content"].dictionaryValue {
 								for obj in json["data"]["attributes"]["content"][content.0].arrayValue {
