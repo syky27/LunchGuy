@@ -1,0 +1,7 @@
+#!/bin/ruby
+###################### More Options ######################
+# If you want to have even more control, check out the documentation
+# https://github.com/fastlane/fastlane/blob/master/deliver/Deliverfile.md
+
+app_identifier "cz.ajty.WICS-CLIENT" # The bundle identifier of your app
+username "info@ajty.cz" # your Apple ID user

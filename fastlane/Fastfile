@@ -1,0 +1,133 @@
+#!/bin/ruby
+fastlane_version "2.50.1"
+
+default_platform :ios
+
+platform :ios do
+  before_all do
+    create_keychain(
+            name: ENV["MATCH_KEYCHAIN_NAME"],
+            password: ENV["MATCH_PASSWORD"],
+            default_keychain: true,
+            unlock: true,
+            timeout: 3600,
+            add_to_search_list: true,
+            verbose: true
+        )
+  end
+
+  private_lane :generateProfiles do |options|
+        type = options[:type]
+        identifier = options[:identifier]
+        match(
+            type: type,
+            app_identifier: identifier,
+            keychain_name: ENV["MATCH_KEYCHAIN_NAME"],
+            keychain_password: ENV["MATCH_PASSWORD"],
+            readonly: false,
+            verbose: false,
+            force_for_new_devices: true
+        )
+    end
+
+  def commits
+    return %x[git log `git branch | grep \* | cut -d ' ' -f2` --pretty=oneline --abbrev-commit]
+  end
+
+
+  lane :badge_dev do
+    readme = File.read("../CHANGELOG.md")
+    latest_version = readme.split("\n## ").first
+    first_line = latest_version.split("\n").first
+    version_number = first_line.split(" ")[1]
+    badge_str = version_number + "-DEV-blue"
+    puts badge_str
+    badge(
+      shield: badge_str,
+      dark: true
+      )
+  end
+
+
+  lane :beta do
+    match(type: "development")
+    gym(
+      scheme: "LunchGuy",
+      export_method: "development")
+    crashlytics(
+      crashlytics_path: './Pods/Crashlytics/iOS/Crashlytics.framework', # path to your 'Crashlytics.framework'
+      groups: 'internal-testers',
+      notes: "CHANGELOG from GIT commits \n" + commits
+      )
+    upload_symbols_to_crashlytics
+    post_to_slack place: "Crashlytics"
+  end
+
+  lane :release do
+    match(type: "appstore")
+    
+    gym(
+      scheme: "LunchGuy",
+      export_method: "app-store",
+      configuration: "Release")
+    
+    deliver(
+      force: true,
+      submit_for_review: true,
+      automatic_release: true)
+    
+    post_to_slack place: "AppStore"
+  end
+
+
+  lane :increment_versions do
+    # Set version number to the one at the top of the CHANGELOG
+    ci_job_id = ENV["TRAVIS_BUILD_NUMBER"] || '42'
+    puts ci_job_id
+    readme = File.read("../CHANGELOG.md")
+    latest_version = readme.split("\n## ").first
+    first_line = latest_version.split("\n").first
+    version_number = first_line.split(" ")[1]
+    release_notes = latest_version.split("\n")[1..-1].join("\n")
+
+    increment_version_number(version_number: version_number)
+    increment_build_number(build_number: ci_job_id)
+
+    puts release_notes
+    puts version_number
+    File.open('metadata/en-US/release_notes.txt', 'w') { |file| 
+      file.write(release_notes) 
+    }
+  end
+
+  desc "Post slack into "
+  lane :post_to_slack  do |options|
+    buildPlist="../LunchGuy/Info.plist"
+    buildVersion="$(/usr/libexec/PlistBuddy -c 'Print CFBundleShortVersionString' #{buildPlist})"
+    buildVersion=`printf #{buildVersion}`
+    buildNumber="$(/usr/libexec/PlistBuddy -c 'Print CFBundleVersion' #{buildPlist})"
+    buildNumber=`printf #{buildNumber}`
+
+    place = options[:place]
+    slack(
+      username: "Deploy Bot",
+      message: "@channel: LunchGuy iOS: New iOS #{buildVersion} (#{buildNumber}) has been uploaded to #{place}",
+      icon_url: "https://www.dropbox.com/s/sdkapf0f566wcz7/1024_logo.png"
+      )
+  end
+
+  after_all do |lane|
+    delete_keychain(
+      name: ENV["MATCH_KEYCHAIN_NAME"]
+      )
+  end
+
+  error do |lane, exception|
+    slack(
+      username: "Deploy Bot",
+      message: exception.message,
+      success: false,
+      icon_url: "https://www.dropbox.com/s/sdkapf0f566wcz7/1024_logo.png"
+    )
+  end
+end
