@@ -11,7 +11,7 @@ import RealmSwift
 import SwiftyJSON
 
 class Restaurant: Object {
-	dynamic var restaurantID = ""
+	@objc dynamic var restaurantID = ""
 
 	override static func primaryKey() -> String? {
 		return "restaurantID"
@@ -19,8 +19,8 @@ class Restaurant: Object {
 }
 
 class Menu: Object {
-	dynamic var menuID = ""
-	dynamic var cached = NSDate()
+	@objc dynamic var menuID = ""
+	@objc dynamic var cached = Date()
 	var meals = List<Meal>()
 
 	override static func primaryKey() -> String? {
@@ -29,11 +29,11 @@ class Menu: Object {
 }
 
 class Meal: Object {
-	dynamic var mealID = ""
-	dynamic var type = ""
-	dynamic var name = ""
-	dynamic var price = 0
-	dynamic var restaurantID = ""
+	@objc dynamic var mealID = ""
+	@objc dynamic var type = ""
+	@objc dynamic var name = ""
+	@objc dynamic var price = 0
+	@objc dynamic var restaurantID = ""
 
 	override static func primaryKey() -> String? {
 		return "mealID"

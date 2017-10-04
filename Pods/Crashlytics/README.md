@@ -1,10 +1,10 @@
 ![Crashlytics Header](https://docs.fabric.io/ios/cocoapod-readmes/cocoapods-crashlytics-header.png)
 
-Part of [Twitter Fabric](https://www.fabric.io), [Crashlytics](http://try.crashlytics.com/) offers the most powerful, yet lightest weight crash reporting solution for iOS. Crashlytics also provides real-time analytics through [Answers](https://answers.io/) and app distributions to testers using [Beta](http://try.crashlytics.com/beta/).
+Part of [Google Fabric](https://get.fabric.io), [Crashlytics](http://try.crashlytics.com/) offers the most powerful, yet lightest weight crash reporting solution for iOS. Crashlytics also provides real-time analytics through [Answers](https://answers.io/) and app distributions to testers using [Beta](http://try.crashlytics.com/beta/).
 
 ## Setup
 
-1. Visit https://fabric.io/sign_up to create your Fabric account and to download Fabric.app
+1. Visit [https://fabric.io/sign_up](https://fabric.io/sign_up) to create your Fabric account and to download Fabric.app.
 
 1. Open Fabric.app, login and select the Crashlytics SDK.
 
@@ -16,8 +16,10 @@ Part of [Twitter Fabric](https://www.fabric.io), [Crashlytics](http://try.crashl
 
 1. Select the Podfile option and follow the installation instructions to update your Podfile. **Note:** the Crashlytics Pod includes Answers. If you have Answers included as a separate Pod it should be removed from your Podfile to avoid duplicate symbol errors.
 
-	`pod 'Fabric'`
-	`pod 'Crashlytics'`
+	```
+	pod 'Fabric'
+	pod 'Crashlytics'
+	```
 
 1. Run `pod install`
 
@@ -31,8 +33,7 @@ Part of [Twitter Fabric](https://www.fabric.io), [Crashlytics](http://try.crashl
 
 ## Resources
 
-* [Documentation](https://docs.fabric.io/ios/crashlytics/index.html)
-* [Forums](https://twittercommunity.com/c/fabric/crashlytics)
+* [Documentation](https://docs.fabric.io/apple/crashlytics/overview.html)
+* [Forums](https://stackoverflow.com/questions/tagged/google-fabric)
 * [Website](http://try.crashlytics.com/)
 * Follow us on Twitter: [@fabric](https://twitter.com/fabric) and [@crashlytics](https://twitter.com/crashlytics)
-* Follow us on Periscope: [Fabric](https://periscope.tv/fabric) and [TwitterDev](https://periscope.tv/twitterdev)

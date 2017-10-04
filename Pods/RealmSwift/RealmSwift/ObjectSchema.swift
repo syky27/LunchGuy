@@ -20,28 +20,31 @@ import Foundation
 import Realm
 
 /**
-This class represents Realm model object schemas.
+ This class represents Realm model object schemas.
 
-When using Realm, `ObjectSchema` objects allow performing migrations and
-introspecting the database's schema.
+ When using Realm, `ObjectSchema` instances allow performing migrations and introspecting the database's schema.
 
-`ObjectSchema`s map to tables in the core database.
-*/
-public final class ObjectSchema: CustomStringConvertible {
+ Object schemas map to tables in the core database.
+ */
+public struct ObjectSchema: CustomStringConvertible {
 
     // MARK: Properties
 
     internal let rlmObjectSchema: RLMObjectSchema
 
-    /// Array of persisted `Property` objects for an object.
+    /**
+     An array of `Property` instances representing the managed properties of a class described by the schema.
+
+     - see: `Property`
+     */
     public var properties: [Property] {
         return rlmObjectSchema.properties.map { Property($0) }
     }
 
-    /// The name of the class this schema describes.
+    /// The name of the class the schema describes.
     public var className: String { return rlmObjectSchema.className }
 
-    /// The property that serves as the primary key, if there is a primary key.
+    /// The property which serves as the primary key for the class the schema describes, if any.
     public var primaryKeyProperty: Property? {
         if let rlmProperty = rlmObjectSchema.primaryKeyProperty {
             return Property(rlmProperty)
@@ -49,7 +52,7 @@ public final class ObjectSchema: CustomStringConvertible {
         return nil
     }
 
-    /// Returns a human-readable description of the properties contained in this object schema.
+    /// A human-readable description of the properties contained in the object schema.
     public var description: String { return rlmObjectSchema.description }
 
     // MARK: Initializers
@@ -71,9 +74,9 @@ public final class ObjectSchema: CustomStringConvertible {
 
 // MARK: Equatable
 
-extension ObjectSchema: Equatable {}
-
-/// Returns whether the two object schemas are equal.
-public func == (lhs: ObjectSchema, rhs: ObjectSchema) -> Bool { // swiftlint:disable:this valid_docs
-    return lhs.rlmObjectSchema.isEqualToObjectSchema(rhs.rlmObjectSchema)
+extension ObjectSchema: Equatable {
+    /// Returns whether the two object schemas are equal.
+    public static func == (lhs: ObjectSchema, rhs: ObjectSchema) -> Bool {
+        return lhs.rlmObjectSchema.isEqual(to: rhs.rlmObjectSchema)
+    }
 }

@@ -20,35 +20,36 @@ import Foundation
 import Realm
 
 /**
-This class represents properties persisted to Realm in an `ObjectSchema`.
+ `Property` instances represent properties managed by a Realm in the context of an object schema. Such properties may be
+ persisted to a Realm file or computed from other data in the Realm.
 
-When using Realm, `Property` objects allow performing migrations and
-introspecting the database's schema.
+ When using Realm, property instances allow performing migrations and introspecting the database's schema.
 
-These properties map to columns in the core database.
-*/
-public final class Property: CustomStringConvertible {
+ Property instances map to columns in the core database.
+ */
+public struct Property: CustomStringConvertible {
 
     // MARK: Properties
 
     internal let rlmProperty: RLMProperty
 
-    /// Property name.
+    /// The name of the property.
     public var name: String { return rlmProperty.name }
 
-    /// Property type.
+    /// The type of the property.
     public var type: PropertyType { return rlmProperty.type }
 
-    /// Whether this property is indexed.
-    public var indexed: Bool { return rlmProperty.indexed }
+    /// Indicates whether this property is indexed.
+    public var isIndexed: Bool { return rlmProperty.indexed }
 
-    /// Whether this property is optional (can contain `nil` values).
-    public var optional: Bool { return rlmProperty.optional }
+    /// Indicates whether this property is optional. (Note that certain numeric types must be wrapped in a
+    /// `RealmOptional` instance in order to be declared as optional.)
+    public var isOptional: Bool { return rlmProperty.optional }
 
-    /// Object class name - specify object types for `Object` and `List` properties.
+    /// For `Object` and `List` properties, the name of the class of object stored in the property.
     public var objectClassName: String? { return rlmProperty.objectClassName }
 
-    /// Returns a human-readable description of this property.
+    /// A human-readable description of the property object.
     public var description: String { return rlmProperty.description }
 
     // MARK: Initializers
@@ -60,9 +61,19 @@ public final class Property: CustomStringConvertible {
 
 // MARK: Equatable
 
-extension Property: Equatable {}
+extension Property: Equatable {
+    /// Returns whether the two properties are equal.
+    public static func == (lhs: Property, rhs: Property) -> Bool {
+        return lhs.rlmProperty.isEqual(to: rhs.rlmProperty)
+    }
+}
 
-/// Returns whether the two properties are equal.
-public func == (lhs: Property, rhs: Property) -> Bool { // swiftlint:disable:this valid_docs
-    return lhs.rlmProperty.isEqualToProperty(rhs.rlmProperty)
+// MARK: Unavailable
+
+extension Property {
+    @available(*, unavailable, renamed: "isIndexed")
+    public var indexed: Bool { fatalError() }
+
+    @available(*, unavailable, renamed: "isOptional")
+    public var optional: Bool { fatalError() }
 }

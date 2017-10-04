@@ -1,15 +1,20 @@
+#ifdef __OBJC__
 #import <UIKit/UIKit.h>
+#else
+#ifndef FOUNDATION_EXPORT
+#if defined(__cplusplus)
+#define FOUNDATION_EXPORT extern "C"
+#else
+#define FOUNDATION_EXPORT extern
+#endif
+#endif
+#endif
 
 #import "RBQControllerCacheObject.h"
 #import "RBQObjectCacheObject.h"
 #import "RBQSectionCacheObject.h"
 #import "RBQFetchedResultsController.h"
 #import "RBQFetchRequest.h"
-#import "RBQSafeRealmObject.h"
-#import "RLMObject+SafeObject.h"
-#import "RLMArray+Utilities.h"
-#import "RLMObject+Utilities.h"
-#import "RLMObjectBase+Utilities.h"
 #import "RBQFRC.h"
 
 FOUNDATION_EXPORT double RBQFetchedResultsControllerVersionNumber;

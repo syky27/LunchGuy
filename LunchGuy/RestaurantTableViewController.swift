@@ -17,22 +17,22 @@ class RestaurantTableViewController: UITableViewController {
         super.viewDidLoad()
 		title = "Restaurace"
 		refreshControl = UIRefreshControl()
-		refreshControl!.backgroundColor = UIColor.whiteColor()
+		refreshControl!.backgroundColor = UIColor.white
 		refreshControl?.addTarget(self,
 		                          action: #selector(RestaurantTableViewController.downloadNewData),
-		                          forControlEvents: UIControlEvents.ValueChanged)
+		                          for: UIControlEvents.valueChanged)
 
-		self.tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "reuseIdentifier")
+		self.tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: "reuseIdentifier")
 
-		NSNotificationCenter.defaultCenter()
+		NotificationCenter.default
 			.addObserver(self,
 			             selector: #selector(RestaurantTableViewController.fetchNewData),
-			             name: "updateFinished",
+			             name: NSNotification.Name(rawValue: "updateFinished"),
 			             object: nil)
 		fetchNewData()
     }
 
-	func downloadNewData() {
+	@objc func downloadNewData() {
 		APIWrapper.instance.getRestaurants { (error) in
 			self.refreshControl?.endRefreshing()
 			if error != nil {
@@ -44,10 +44,10 @@ class RestaurantTableViewController: UITableViewController {
 
 	}
 
-	func fetchNewData() {
+	@objc func fetchNewData() {
 		do {
 			let realm = try Realm()
-			restaurants = realm.objects(Restaurant)
+			restaurants = realm.objects(Restaurant.self)
 			tableView.reloadData()
 		} catch {
 			print(error)
@@ -60,21 +60,21 @@ class RestaurantTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return restaurants.count
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 		cell.textLabel?.text = restaurants[indexPath.row].restaurantID
         return cell
     }
 
-	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let menuViewController = MenuTableViewController()
 		menuViewController.restaurantID = restaurants[indexPath.row].restaurantID
 		navigationController?.pushViewController(menuViewController, animated: true)

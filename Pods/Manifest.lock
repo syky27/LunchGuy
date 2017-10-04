@@ -1,19 +1,31 @@
 PODS:
-  - Alamofire (3.4.0)
-  - Crashlytics (3.7.0):
+  - Alamofire (4.5.1)
+  - Crashlytics (3.8.6):
     - Fabric (~> 1.6.3)
-  - Fabric (1.6.7)
-  - RBQFetchedResultsController (4.0.3):
+  - Fabric (1.6.13)
+  - RBQFetchedResultsController (5.0.2):
+    - RBQSafeRealmObject
+    - Realm (>= 1.0.0)
+    - RealmUtilities
+  - RBQSafeRealmObject (1.1):
     - Realm (>= 0.99.1)
-  - Realm (0.102.0):
-    - Realm/Headers (= 0.102.0)
-  - Realm/Headers (0.102.0)
-  - RealmSwift (0.102.0):
-    - Realm (= 0.102.0)
-  - SwiftFetchedResultsController (4.0.3):
-    - RBQFetchedResultsController (>= 4.0.3)
+    - RealmUtilities (>= 0.2.1)
+  - Realm (2.10.2):
+    - Realm/Headers (= 2.10.2)
+  - Realm/Headers (2.10.2)
+  - RealmSwift (2.10.2):
+    - Realm (= 2.10.2)
+  - RealmUtilities (0.4):
+    - Realm (>= 0.95)
+  - SafeRealmObject (1.1):
+    - RBQSafeRealmObject
     - RealmSwift (>= 0.99.1)
-  - SwiftyJSON (2.3.2)
+    - RealmUtilities (>= 0.2.1)
+  - SwiftFetchedResultsController (5.0.2):
+    - RBQFetchedResultsController (>= 5.0.2)
+    - RealmSwift (>= 2.1.1)
+    - SafeRealmObject
+  - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
   - Alamofire
@@ -24,15 +36,18 @@ DEPENDENCIES:
   - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
-  Crashlytics: c3a2333dea9e2733d2777f730910321fc9e25c0d
-  Fabric: caf7580c725e64db144f610ac65cd60956911dc7
-  RBQFetchedResultsController: fcc29d033acb7875af5c85976bd4f1ddb4ff75bc
-  Realm: 5d219f9037e3ec2019c599b8227bfc95433cb10e
-  RealmSwift: e6f436f9fea1c57b9ad6d1c46d57562c845f3c4c
-  SwiftFetchedResultsController: 5ba43769b1198195e087f37536c99611505da5ec
-  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  Crashlytics: 95d05f4e4c19a771250c4bd9ce344d996de32bbf
+  Fabric: 2fb5676bc811af011a04513451f463dac6803206
+  RBQFetchedResultsController: 24877a429680be6d22709a2e527bcb766877bf4e
+  RBQSafeRealmObject: 128e6ece2acceeb7dea9d00b8fa40ba4c489c3fa
+  Realm: 0ef72b837fb67e9f4b098bac771ddd72c7fdbb69
+  RealmSwift: 07a9ae0505091eda6b2ee7c190c3786d6e90a7b0
+  RealmUtilities: bd4d18141e62a6cdcfa1859f1f090a27ab282628
+  SafeRealmObject: b881780ebc49621ab4a12bb14cd283955fe540ad
+  SwiftFetchedResultsController: 377825910b5294a48295481ab04e70b8fa9696de
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
 PODFILE CHECKSUM: 14ee69225e36001f6362e2307624f370280edcb5
 
-COCOAPODS: 1.0.0
+COCOAPODS: 1.2.0.rc.1

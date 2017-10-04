@@ -21,46 +21,40 @@ class APIWrapper {
 		return Singleton.instance
 	}
 
-	enum Router: URLRequestConvertible {
+    enum Router: URLRequestConvertible {
 
-		static let baseURL = "http://obedar.fit.cvut.cz/obedar/api/v1"
-		case Restaurants
-		case Menu(restaurant: Restaurant)
 
-		var method: Alamofire.Method {
+		static let baseURL = "http://obedar.fit.cvut.cz/api/v1"
+		case restaurants
+		case menu(restaurant: Restaurant)
+
+		var method: HTTPMethod {
 			switch self {
-			case .Restaurants:
-				return .GET
-			case .Menu:
-				return .GET
+			case .restaurants:
+				return .get
+			case .menu:
+				return .get
 			}
 		}
 
 		var path: String {
 			switch self {
-			case .Restaurants:
+			case .restaurants:
 				return "/restaurants.json"
-			case .Menu(let restaurant):
+			case .menu(let restaurant):
 				return "/restaurants/\(restaurant.restaurantID)/menu.json"
 			}
 		}
 
-		var URLRequest: NSMutableURLRequest {
-			let url = NSURL(string: Router.baseURL)!
-			let mutableRequest = NSMutableURLRequest(URL: url.URLByAppendingPathComponent(path))
-			mutableRequest.HTTPMethod = method.rawValue
-
-
-			switch self {
-			case .Restaurants:
-				return Alamofire.ParameterEncoding.JSON.encode(mutableRequest, parameters: nil).0
-			case .Menu:
-				return Alamofire.ParameterEncoding.JSON.encode(mutableRequest, parameters: nil).0
-			}
-		}
+        func asURLRequest() throws -> URLRequest {
+            let url = try Router.baseURL.asURL()
+            var urlRequest = URLRequest(url: url.appendingPathComponent(path))
+            urlRequest.httpMethod = method.rawValue
+            return urlRequest
+        }
 	}
 
-	func getRestaurants(completion: (error: NSError?)->()) {
+	func getRestaurants(_ completion: @escaping (_ error: NSError?)->()) {
         do {
             let realm = try Realm()
             try realm.write({
@@ -69,12 +63,12 @@ class APIWrapper {
         }catch (let e) {
             debugPrint(e)
         }
-		Alamofire.request(Router.Restaurants)
+		Alamofire.request(Router.restaurants)
 			.validate(statusCode: 200..<300)
 			.validate(contentType: ["application/json"])
 			.responseJSON { response in
 				switch response.result {
-				case .Success:
+				case .success:
 					if let networkingData = response.data{
 						let json = JSON(data:networkingData)
 						for restaurantName in json.arrayObject! {
@@ -82,25 +76,25 @@ class APIWrapper {
 							restaurant.restaurantID = restaurantName as! String
 							self.getMenuForRestaurant(restaurant, completion: { (error) in
 								print(error)
-								completion(error: error)
+								completion(error)
 							})
 						}
 
 					}
-				case .Failure:
-					completion(error: NSError(domain: "Networking", code: 1, userInfo: nil))
+				case .failure:
+					completion(NSError(domain: "Networking", code: 1, userInfo: nil))
 
 				}
 		}
 	}
 
-	func getMenuForRestaurant(restaurant: Restaurant, completion: (error: NSError?)->()) {
-		Alamofire.request(Router.Menu(restaurant: restaurant))
+	func getMenuForRestaurant(_ restaurant: Restaurant, completion: @escaping (_ error: NSError?)->()) {
+		Alamofire.request(Router.menu(restaurant: restaurant))
 			.validate(statusCode: 200..<300)
 			.validate(contentType: ["application/json"])
 			.responseJSON { response in
 				switch response.result {
-				case .Success:
+				case .success:
 					if let networkingData = response.data{
 						let json = JSON(data:networkingData)
 
@@ -119,7 +113,7 @@ class APIWrapper {
                             
 							let menu = Menu()
 							menu.menuID = json["data"]["attributes"]["title"].stringValue
-							menu.cached = NSDate.dateFromISOString(json["data"]["attributes"]["cached"].stringValue)
+							menu.cached = Date.dateFromISOString(json["data"]["attributes"]["cached"].stringValue)
 							realm.add(menu, update: true)
                             
                             
@@ -138,14 +132,14 @@ class APIWrapper {
 							}
 
 							try realm.commitWrite()
-							completion(error: nil)
-							NSNotificationCenter.defaultCenter().postNotificationName("updateFinished", object: nil)
+							completion( nil)
+							NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateFinished"), object: nil)
 						} catch (let error as NSError) {
-							completion(error: error)
+							completion(error)
 						}
 					}
-				case .Failure:
-					completion(error: NSError(domain: "Networking", code: 1, userInfo: nil))
+				case .failure:
+					completion(NSError(domain: "Networking", code: 1, userInfo: nil))
 
 				}
 		}
