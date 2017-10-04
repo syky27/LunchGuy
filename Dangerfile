@@ -22,8 +22,8 @@ end
 
 
 xcov.report(
-    scheme: 'WICS.REPORTER',
-    workspace: 'WICS.REPORTER/WICS.REPORTER.xcworkspace',
+    scheme: 'LunchGuy',
+    workspace: 'LunchGuy.xcworkspace',
     minimum_coverage_percentage: 50)
 
 swiftlint.config_file = '.swiftlint_CI.yml'
