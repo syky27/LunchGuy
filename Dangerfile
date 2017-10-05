@@ -24,7 +24,7 @@ end
 xcov.report(
     scheme: 'LunchGuy',
     workspace: 'LunchGuy.xcworkspace',
-    minimum_coverage_percentage: 50)
+    minimum_coverage_percentage: 50.0)
 
 swiftlint.config_file = '.swiftlint_CI.yml'
 swiftlint.lint_files

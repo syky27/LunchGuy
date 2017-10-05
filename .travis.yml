@@ -21,3 +21,4 @@ script:
     else
       bundle exec fastlane beta
     fi
+
