@@ -35,41 +35,16 @@ xcode-select --install
 fastlane ios badge_dev
 ```
 
-### ios update_itc
+### ios beta
 ```
-fastlane ios update_itc
-```
-Updates data on iTunes Connect
-### ios update_certs
-```
-fastlane ios update_certs
-```
-Update certificates before build
-### ios coverage
-```
-fastlane ios coverage
-```
-Code coverage
-### ios test
-```
-fastlane ios test
+fastlane ios beta
 ```
 
-### ios deploy_testflight
+### ios release
 ```
-fastlane ios deploy_testflight
+fastlane ios release
 ```
-Release version to Testflight
-### ios deploy_crashlytics
-```
-fastlane ios deploy_crashlytics
-```
-Debug version to Crashlytics
-### ios deploy_appstore
-```
-fastlane ios deploy_appstore
-```
-AppStore version
+
 ### ios increment_versions
 ```
 fastlane ios increment_versions
