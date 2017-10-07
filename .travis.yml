@@ -11,6 +11,7 @@ env:
 
 before_install:
   - bundle update
+  - brew install imagemagick
 
 before_script:
   - bundle exec danger --verbose
