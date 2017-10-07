@@ -29,7 +29,11 @@ platform :ios do
 
   lane :beta do
     match(type: "appstore")
-    gym(scheme: "LunchGuy")
+    gym(
+      scheme: "LunchGuy",
+      export_method: "app-store",
+      clean: true
+      )
     crashlytics(
       crashlytics_path: './Pods/Crashlytics/iOS/Crashlytics.framework',
       groups: 'internal-testers',
@@ -41,8 +45,11 @@ platform :ios do
 
   lane :release do
     match(type: "appstore")
-    gym(scheme: "LunchGuy")
-    
+    gym(
+      scheme: "LunchGuy",
+      export_method: "app-store",
+      clean: true
+      )
     deliver(
       force: true,
       submit_for_review: true,
