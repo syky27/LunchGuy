@@ -5,30 +5,8 @@ default_platform :ios
 
 platform :ios do
   before_all do
-    create_keychain(
-            name: ENV["MATCH_KEYCHAIN_NAME"],
-            password: ENV["MATCH_PASSWORD"],
-            default_keychain: true,
-            unlock: true,
-            timeout: 3600,
-            add_to_search_list: true,
-            verbose: true
-        )
+    setup_travis
   end
-
-  private_lane :generateProfiles do |options|
-        type = options[:type]
-        identifier = options[:identifier]
-        match(
-            type: type,
-            app_identifier: identifier,
-            keychain_name: ENV["MATCH_KEYCHAIN_NAME"],
-            keychain_password: ENV["MATCH_PASSWORD"],
-            readonly: false,
-            verbose: false,
-            force_for_new_devices: true
-        )
-    end
 
   def commits
     return %x[git log `git branch | grep \* | cut -d ' ' -f2` --pretty=oneline --abbrev-commit]
@@ -55,7 +33,7 @@ platform :ios do
       scheme: "LunchGuy",
       export_method: "development")
     crashlytics(
-      crashlytics_path: './Pods/Crashlytics/iOS/Crashlytics.framework', # path to your 'Crashlytics.framework'
+      crashlytics_path: './Pods/Crashlytics/iOS/Crashlytics.framework',
       groups: 'internal-testers',
       notes: "CHANGELOG from GIT commits \n" + commits
       )

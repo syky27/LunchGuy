@@ -20,5 +20,5 @@ if git.diff.include?("@objc dynamic var")
   warn 'Possible Database Migration needed!'
 end
 
-swiftlint.config_file = '.swiftlint_CI.yml'
+swiftlint.config_file = '.swiftlint.yml'
 swiftlint.lint_files
