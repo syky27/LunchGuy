@@ -1,6 +1,4 @@
 #!/bin/ruby
 
-type "development"
 app_identifier "cz.ajty.LunchGuy"
-
 username "info@ajty.cz"
