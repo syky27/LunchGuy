@@ -1,9 +1,6 @@
 #!/bin/ruby
 
-git_url "git@git.ajty.cz:internal/ios-codesigning.git"
-
 type "development"
 app_identifier "cz.ajty.LunchGuy"
 
-ENV["MATCH_FORCE_FOR_NEW_DEVICES"] = "true"
 username "info@ajty.cz"
