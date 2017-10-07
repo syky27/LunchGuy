@@ -16,5 +16,7 @@ before_script:
   - bundle exec danger --verbose
 
 script: 
-  - if [ $TRAVIS_BRANCH == "master" ]; then travis_wait 60 bundle exec fastlane release ; else travis_wait 60 bundle exec fastlane beta; fi
+  - git clone $MATCH_GIT_URL
+  #- if [ $TRAVIS_BRANCH == "master" ]; then travis_wait 60 bundle exec fastlane release ; else travis_wait 60 bundle exec fastlane beta; fi
+
 
