@@ -655,6 +655,7 @@
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1.0.4;
 				DEVELOPMENT_TEAM = CDMJRT8WJB;
 				INFOPLIST_FILE = LunchGuy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -665,6 +666,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "match Development cz.ajty.LunchGuy";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -677,6 +679,7 @@
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1.0.4;
 				DEVELOPMENT_TEAM = CDMJRT8WJB;
 				INFOPLIST_FILE = LunchGuy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -687,6 +690,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore cz.ajty.LunchGuy";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
