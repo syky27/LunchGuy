@@ -8,6 +8,7 @@ platform :ios do
     setup_travis
     match(type: "development")
     match(type: "appstore")
+    increment_versions
   end
 
   def commits
@@ -30,6 +31,7 @@ platform :ios do
 
 
   lane :beta do
+    badge_dev
     match(type: "development")
     gym(
       scheme: "LunchGuy",
