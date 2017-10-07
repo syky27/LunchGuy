@@ -90,7 +90,7 @@ platform :ios do
     slack(
       username: "Deploy Bot",
       message: "@channel: LunchGuy iOS: New iOS #{buildVersion} (#{buildNumber}) has been uploaded to #{place}",
-      icon_url: "https://www.dropbox.com/s/sdkapf0f566wcz7/1024_logo.png"
+      icon_url: "https://avatars2.githubusercontent.com/u/17056452?v=4&s=400"
       )
   end
 
@@ -105,7 +105,7 @@ platform :ios do
       username: "Deploy Bot",
       message: exception.message,
       success: false,
-      icon_url: "https://www.dropbox.com/s/sdkapf0f566wcz7/1024_logo.png"
+      icon_url: "https://avatars2.githubusercontent.com/u/17056452?v=4&s=400"
     )
   end
 end
