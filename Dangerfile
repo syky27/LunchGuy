@@ -1,11 +1,11 @@
 #!/bin/ruby
 if !git.modified_files.include?("CHANGELOG.md") && github.branch_for_base == "master"
-  fail("Please include a CHANGELOG entry. \nYou can find it at [CHANGELOG.md](https://git.ajty.cz/cwa-engineers/WICS.REPORTER/blob/dev/CHANGELOG.md).")
+  fail("Please include a CHANGELOG entry.")
 end
 
 
 if !git.modified_files.include?("CHANGELOG.md") && github.branch_for_base == "dev"
-  warn("You might want to include a CHANGELOG entry. \nYou can find it at [CHANGELOG.md](https://git.ajty.cz/cwa-engineers/WICS.REPORTER/blob/dev/CHANGELOG.md).")
+  warn("You might want to include a CHANGELOG entry.")
 end
 
 if git.commits.any? { |c| c.message =~ /^Merge branch 'master'/ }
