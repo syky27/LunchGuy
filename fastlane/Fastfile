@@ -28,10 +28,10 @@ platform :ios do
 
 
   lane :beta do
-    match(type: "appstore")
+    match(type: "development")
     gym(
       scheme: "LunchGuy",
-      export_method: "app-store",
+      export_method: "development",
       clean: true
       )
     crashlytics(
