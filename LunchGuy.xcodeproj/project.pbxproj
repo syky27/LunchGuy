@@ -10,6 +10,7 @@
 		2085320DD5DC579F5868699A /* Pods_LunchGuyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46242A0D246587309CC58535 /* Pods_LunchGuyUITests.framework */; };
 		351CFA781CF3D96F00D4146A /* RestaurantTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351CFA771CF3D96F00D4146A /* RestaurantTableViewController.swift */; };
 		351CFA7A1CF3DD9E00D4146A /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351CFA791CF3DD9E00D4146A /* MenuTableViewController.swift */; };
+		3520D8A81F89AEF50025610B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3520D8A71F89AEF40025610B /* LaunchScreen.storyboard */; };
 		3525C0CE1CF3BA7F002114A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525C0CD1CF3BA7F002114A6 /* AppDelegate.swift */; };
 		3525C0D01CF3BA7F002114A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525C0CF1CF3BA7F002114A6 /* ViewController.swift */; };
 		3525C0D51CF3BA7F002114A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3525C0D41CF3BA7F002114A6 /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 		19F03A6E386F819E4353682F /* Pods_LunchGuy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LunchGuy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		351CFA771CF3D96F00D4146A /* RestaurantTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewController.swift; sourceTree = "<group>"; };
 		351CFA791CF3DD9E00D4146A /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		3520D8A71F89AEF40025610B /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3525C0CA1CF3BA7F002114A6 /* LunchGuy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LunchGuy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3525C0CD1CF3BA7F002114A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3525C0CF1CF3BA7F002114A6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				3525C0CF1CF3BA7F002114A6 /* ViewController.swift */,
 				3525C0D41CF3BA7F002114A6 /* Assets.xcassets */,
 				3525C0D91CF3BA7F002114A6 /* Info.plist */,
+				3520D8A71F89AEF40025610B /* LaunchScreen.storyboard */,
 			);
 			path = LunchGuy;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3525C0D51CF3BA7F002114A6 /* Assets.xcassets in Resources */,
+				3520D8A81F89AEF50025610B /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -666,7 +670,6 @@
 			baseConfigurationReference = E6F55551A8E25408DCD24251 /* Pods-LunchGuy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -690,7 +693,6 @@
 			baseConfigurationReference = CB977E6F098BAF138A2713EE /* Pods-LunchGuy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;

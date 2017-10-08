@@ -1,4 +1,5 @@
 #!/bin/bash
+# https://makeappicon.com/ios11icon
 
 DENSITY=300 # 300 for best results
 
@@ -31,3 +32,6 @@ icon2png 87 "../LunchGuy/Assets.xcassets/AppIcon.appiconset/Icon-Small@3x.png"
 
 icon2png 57 "../LunchGuy/Assets.xcassets/AppIcon.appiconset/Icon.png"
 icon2png 114 "../LunchGuy/Assets.xcassets/AppIcon.appiconset/Icon@2x.png"
+
+icon2png 1024 "../LunchGuy/Assets.xcassets/AppIcon.appiconset/iTunesArtwork@2x.png"
+
