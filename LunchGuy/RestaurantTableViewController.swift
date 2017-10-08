@@ -9,7 +9,6 @@
 import UIKit
 import RealmSwift
 
-
 class RestaurantTableViewController: UITableViewController {
 	var restaurants: Results<Restaurant>!
 

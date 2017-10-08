@@ -220,6 +220,7 @@
 				87E5CB78068CEFDF3CCCA078 /* [CP] Embed Pods Frameworks */,
 				ABEA4579578290585B7B6A3C /* [CP] Copy Pods Resources */,
 				352802911CF8ABA0003A2700 /* Fabric */,
+				3520D8A41F89A8340025610B /* Lint */,
 			);
 			buildRules = (
 			);
@@ -360,6 +361,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LunchGuyUITests/Pods-LunchGuyUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		3520D8A41F89A8340025610B /* Lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Lint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 		352802911CF8ABA0003A2700 /* Fabric */ = {
 			isa = PBXShellScriptBuildPhase;

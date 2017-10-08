@@ -39,4 +39,3 @@ class Meal: Object {
 		return "mealID"
 	}
 }
-
