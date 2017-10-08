@@ -17,6 +17,10 @@ before_script:
   - bundle exec danger --verbose
 
 script: 
-  - if [ $TRAVIS_BRANCH == "master" ]; then bundle exec fastlane release ; else bundle exec fastlane beta; fi
+  - if [ $TRAVIS_BRANCH == "master" ];
+    then bundle exec fastlane release; 
+    elif [ $TRAVIS_BRANCH == "master" ];
+    then bundle exec fastlane beta; 
+    else bundle exec fastlane build; fi
 
 

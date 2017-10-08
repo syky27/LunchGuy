@@ -62,6 +62,14 @@ platform :ios do
     post_to_slack place: "AppStore"
   end
 
+  lane :build do
+    match(type: "development")
+    gym(
+      scheme: "LunchGuy",
+      export_method: "development",
+      clean: true
+      )
+  end
 
   lane :increment_versions do
     # Set version number to the one at the top of the CHANGELOG
