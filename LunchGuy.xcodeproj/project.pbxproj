@@ -213,12 +213,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3525C0F21CF3BA7F002114A6 /* Build configuration list for PBXNativeTarget "LunchGuy" */;
 			buildPhases = (
-				656F9A83AA9FCF507614796F /* 📦 Check Pods Manifest.lock */,
+				656F9A83AA9FCF507614796F /* [CP] Check Pods Manifest.lock */,
 				3525C0C61CF3BA7F002114A6 /* Sources */,
 				3525C0C71CF3BA7F002114A6 /* Frameworks */,
 				3525C0C81CF3BA7F002114A6 /* Resources */,
-				87E5CB78068CEFDF3CCCA078 /* 📦 Embed Pods Frameworks */,
-				ABEA4579578290585B7B6A3C /* 📦 Copy Pods Resources */,
+				87E5CB78068CEFDF3CCCA078 /* [CP] Embed Pods Frameworks */,
+				ABEA4579578290585B7B6A3C /* [CP] Copy Pods Resources */,
 				352802911CF8ABA0003A2700 /* Fabric */,
 			);
 			buildRules = (
@@ -234,12 +234,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3525C0F51CF3BA7F002114A6 /* Build configuration list for PBXNativeTarget "LunchGuyTests" */;
 			buildPhases = (
-				E117C3E0489D15DDFCFA8184 /* 📦 Check Pods Manifest.lock */,
+				E117C3E0489D15DDFCFA8184 /* [CP] Check Pods Manifest.lock */,
 				3525C0DA1CF3BA7F002114A6 /* Sources */,
 				3525C0DB1CF3BA7F002114A6 /* Frameworks */,
 				3525C0DC1CF3BA7F002114A6 /* Resources */,
-				95C0144EB434A8EFE2A358A9 /* 📦 Embed Pods Frameworks */,
-				E5FE295F8B5FA0D42B4FC050 /* 📦 Copy Pods Resources */,
+				95C0144EB434A8EFE2A358A9 /* [CP] Embed Pods Frameworks */,
+				E5FE295F8B5FA0D42B4FC050 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -255,11 +255,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3525C0F81CF3BA7F002114A6 /* Build configuration list for PBXNativeTarget "LunchGuyUITests" */;
 			buildPhases = (
-				B9C5A492D24DC01DF71FC14F /* 📦 Check Pods Manifest.lock */,
+				B9C5A492D24DC01DF71FC14F /* [CP] Check Pods Manifest.lock */,
 				3525C0E51CF3BA7F002114A6 /* Sources */,
 				3525C0E61CF3BA7F002114A6 /* Frameworks */,
 				3525C0E71CF3BA7F002114A6 /* Resources */,
-				01CFD845311269605E39148A /* 📦 Copy Pods Resources */,
+				01CFD845311269605E39148A /* [CP] Copy Pods Resources */,
+				763298713491909FD8DA4F03 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -278,19 +279,23 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "AJTY, s.r.o.";
 				TargetAttributes = {
 					3525C0C91CF3BA7F002114A6 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = CDMJRT8WJB;
+						LastSwiftMigration = 0900;
+						ProvisioningStyle = Manual;
 					};
 					3525C0DD1CF3BA7F002114A6 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0900;
 						TestTargetID = 3525C0C91CF3BA7F002114A6;
 					};
 					3525C0E81CF3BA7F002114A6 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0900;
 						TestTargetID = 3525C0C91CF3BA7F002114A6;
 					};
 				};
@@ -341,14 +346,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		01CFD845311269605E39148A /* 📦 Copy Pods Resources */ = {
+		01CFD845311269605E39148A /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -370,29 +375,44 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\" dd91786f75cb40ae4bf775ac82d3af8c38f3ef97 79f265a5fd56838a962c4745efc95d52bd061979b51fbe9b5d1c514c19ee73ea";
 		};
-		656F9A83AA9FCF507614796F /* 📦 Check Pods Manifest.lock */ = {
+		656F9A83AA9FCF507614796F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		87E5CB78068CEFDF3CCCA078 /* 📦 Embed Pods Frameworks */ = {
+		763298713491909FD8DA4F03 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LunchGuyUITests/Pods-LunchGuyUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		87E5CB78068CEFDF3CCCA078 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -400,14 +420,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LunchGuy/Pods-LunchGuy-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		95C0144EB434A8EFE2A358A9 /* 📦 Embed Pods Frameworks */ = {
+		95C0144EB434A8EFE2A358A9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,14 +435,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LunchGuyTests/Pods-LunchGuyTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		ABEA4579578290585B7B6A3C /* 📦 Copy Pods Resources */ = {
+		ABEA4579578290585B7B6A3C /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -430,44 +450,44 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LunchGuy/Pods-LunchGuy-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B9C5A492D24DC01DF71FC14F /* 📦 Check Pods Manifest.lock */ = {
+		B9C5A492D24DC01DF71FC14F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		E117C3E0489D15DDFCFA8184 /* 📦 Check Pods Manifest.lock */ = {
+		E117C3E0489D15DDFCFA8184 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		E5FE295F8B5FA0D42B4FC050 /* 📦 Copy Pods Resources */ = {
+		E5FE295F8B5FA0D42B4FC050 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -533,13 +553,21 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -579,16 +607,24 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -604,6 +640,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -615,14 +652,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1.0.4;
+				DEVELOPMENT_TEAM = CDMJRT8WJB;
 				INFOPLIST_FILE = LunchGuy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cz.ajty.LunchGuy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "59837f14-4a1c-44fd-bb7b-1e3c47ae71af";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development cz.ajty.LunchGuy";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -632,14 +676,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1.0.4;
+				DEVELOPMENT_TEAM = CDMJRT8WJB;
 				INFOPLIST_FILE = LunchGuy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cz.ajty.LunchGuy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "189bbb21-ff7f-45ef-af2e-261625598eb4";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore cz.ajty.LunchGuy";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
@@ -652,6 +703,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cz.ajty.LunchGuyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LunchGuy.app/LunchGuy";
 			};
 			name = Debug;
@@ -665,6 +718,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cz.ajty.LunchGuyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LunchGuy.app/LunchGuy";
 			};
 			name = Release;
@@ -677,6 +732,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cz.ajty.LunchGuyUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = LunchGuy;
 			};
 			name = Debug;
@@ -689,6 +746,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cz.ajty.LunchGuyUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = LunchGuy;
 			};
 			name = Release;

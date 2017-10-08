@@ -8,27 +8,27 @@
 
 import Foundation
 
-public extension NSDate {
-	public class func ISOStringFromDate(date: NSDate) -> String {
-		let dateFormatter = NSDateFormatter()
-		dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
-		dateFormatter.timeZone = NSTimeZone(abbreviation: "GMT")
+public extension Date {
+	public static func ISOStringFromDate(_ date: Date) -> String {
+		let dateFormatter = DateFormatter()
+		dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+		dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
 		dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
 
-		return dateFormatter.stringFromDate(date).stringByAppendingString("Z")
+		return dateFormatter.string(from: date) + "Z"
 	}
 
-	public class func dateFromISOString(string: String) -> NSDate {
-		let dateFormatter = NSDateFormatter()
-		dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
-		dateFormatter.timeZone = NSTimeZone.localTimeZone()
+	public static func dateFromISOString(_ string: String) -> Date {
+		let dateFormatter = DateFormatter()
+		dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+		dateFormatter.timeZone = TimeZone.autoupdatingCurrent
 		dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
 
-		if let date = dateFormatter.dateFromString(string) {
+		if let date = dateFormatter.date(from: string) {
 			return date
 		}
 
-		return NSDate()
+		return Date()
 
 	}
 }

@@ -90,3 +90,6 @@ fastlane/test_output
 ._*
 .Trashes
 .Spotlight-V100
+.bundle/
+Gemfile.lock
+vendor/

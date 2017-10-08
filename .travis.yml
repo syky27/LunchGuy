@@ -1,0 +1,22 @@
+language: swift
+osx_image: xcode9
+
+git:
+  submodules: false
+
+env:
+  global:
+    - LC_CTYPE=en_US.UTF-8
+    - LANG=en_US.UTF-8
+
+before_install:
+  - bundle update
+  - brew install imagemagick
+
+before_script:
+  - bundle exec danger --verbose
+
+script: 
+  - if [ $TRAVIS_BRANCH == "master" ]; then bundle exec fastlane release ; else bundle exec fastlane beta; fi
+
+

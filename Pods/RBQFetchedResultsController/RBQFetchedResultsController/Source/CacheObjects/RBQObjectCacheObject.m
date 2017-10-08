@@ -7,11 +7,12 @@
 //
 
 #import "RBQObjectCacheObject.h"
-#import "RLMObjectBase+Utilities.h"
+#import "RBQSectionCacheObject.h"
 
 #import <Realm/RLMRealm_Dynamic.h>
 #import <Realm/RLMObjectBase_Dynamic.h>
 #import <Realm/RLMObjectSchema.h>
+#import <RealmUtilities/RLMObjectBase+Utilities.h>
 
 @implementation RBQObjectCacheObject
 
@@ -101,7 +102,7 @@
         return [realm objectWithClassName:cacheObject.className forPrimaryKey:cacheObject.primaryKeyStringValue];
     }
     else if (cacheObject.primaryKeyType == RLMPropertyTypeInt) {
-        NSNumber *numberFromString = @(cacheObject.primaryKeyStringValue.integerValue);
+        NSNumber *numberFromString = @(cacheObject.primaryKeyStringValue.longLongValue);
         
         return [realm objectWithClassName:cacheObject.className forPrimaryKey:numberFromString];
     }

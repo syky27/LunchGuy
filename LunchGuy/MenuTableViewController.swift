@@ -9,6 +9,8 @@
 import UIKit
 import RealmSwift
 import SwiftFetchedResultsController
+import SafeRealmObject
+
 
 class MenuTableViewController: UITableViewController {
 	var fetchedResultsController: FetchedResultsController<Meal>?
@@ -16,7 +18,7 @@ class MenuTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-		tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "reuseIdentifier2")
+		tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: "reuseIdentifier2")
 		title = restaurantID
 
 		let predicate = NSPredicate(format: "restaurantID == %@", restaurantID)
@@ -32,15 +34,15 @@ class MenuTableViewController: UITableViewController {
 		tableView.rowHeight = UITableViewAutomaticDimension
 		tableView.estimatedRowHeight = 44
 
-		NSNotificationCenter.defaultCenter()
+		NotificationCenter.default
 			.addObserver(self,
 			             selector: #selector(MenuTableViewController.reloadTableView),
-			             name: "updateFinished",
+			             name: NSNotification.Name(rawValue: "updateFinished"),
 			             object: nil)
 
     }
 
-	func reloadTableView() {
+	@objc func reloadTableView() {
 		tableView.reloadData()
 	}
 
@@ -50,70 +52,74 @@ class MenuTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-	override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+	override func numberOfSections(in tableView: UITableView) -> Int {
 		return (fetchedResultsController?.numberOfSections())!
 	}
 
-	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return (fetchedResultsController?.numberOfRowsForSectionIndex(section))!
 	}
 
-	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-		let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "reuseIdentifier2")
+	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "reuseIdentifier2")
 		let meal = fetchedResultsController?.objectAtIndexPath(indexPath)
 		cell.textLabel?.text = meal!.name
 		cell.textLabel?.numberOfLines = 0
-		cell.textLabel?.frame = CGRectMake(cell.textLabel!.frame.origin.x, cell.textLabel!.frame.origin.y, 50, cell.textLabel!.frame.size.height);
+		cell.textLabel?.frame = CGRect(x: cell.textLabel!.frame.origin.x, y: cell.textLabel!.frame.origin.y, width: 50, height: cell.textLabel!.frame.size.height);
 		cell.detailTextLabel?.text = "\(meal!.price) Kč"
         cell.detailTextLabel?.text = meal!.price < 1 ? "Cena není známa" : "\(meal!.price) Kč"
 
 		return cell
 	}
 
-	override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 		return fetchedResultsController?.sectionIndexTitles![section]
 	}
 
 }
 
 extension MenuTableViewController: FetchedResultsControllerDelegate {
-	func controllerWillChangeContent<T : Object>(controller: FetchedResultsController<T>) {
+	func controllerWillChangeContent<T : Object>(_ controller: FetchedResultsController<T>) {
 		self.tableView.beginUpdates()
 	}
 
-	func controllerDidChangeObject<T : Object>(controller: FetchedResultsController<T>, anObject: SafeObject<T>, indexPath: NSIndexPath?, changeType: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+    func controller<T>(_ controller: FetchedResultsController<T>, didChangeObject anObject: SafeObject<T>, atIndexPath indexPath: IndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) where T : Object {
+
+        let tableView = self.tableView
+
+        switch type {
+        case .insert:
+            tableView?.insertRows(at: [newIndexPath!], with: UITableViewRowAnimation.fade)
+
+        case .delete:
+            tableView?.deleteRows(at: [indexPath!], with: UITableViewRowAnimation.fade)
+
+        case .update:
+            tableView?.reloadRows(at: [indexPath!], with: UITableViewRowAnimation.fade)
+
+        case .move:
+            tableView?.deleteRows(at: [indexPath!], with: UITableViewRowAnimation.fade)
+            tableView?.insertRows(at: [newIndexPath!], with: UITableViewRowAnimation.fade)
+        }
+
+    }
+
+
+
+	func controllerDidChangeSection<T : Object>(_ controller: FetchedResultsController<T>, section: FetchResultsSectionInfo<T>, sectionIndex: UInt, changeType: NSFetchedResultsChangeType) {
+
 		let tableView = self.tableView
-
-		switch changeType {
-		case .Insert:
-			tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: UITableViewRowAnimation.Fade)
-
-		case .Delete:
-			tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: UITableViewRowAnimation.Fade)
-
-		case .Update:
-			tableView.reloadRowsAtIndexPaths([indexPath!], withRowAnimation: UITableViewRowAnimation.Fade)
-
-		case .Move:
-			tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: UITableViewRowAnimation.Fade)
-			tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: UITableViewRowAnimation.Fade)
+		if changeType == NSFetchedResultsChangeType.insert {
+			let indexSet = IndexSet(integer: Int(sectionIndex))
+			tableView?.insertSections(indexSet, with: UITableViewRowAnimation.fade)
+		}
+		else if changeType == NSFetchedResultsChangeType.delete {
+			let indexSet = IndexSet(integer: Int(sectionIndex))
+			tableView?.deleteSections(indexSet, with: UITableViewRowAnimation.fade)
 		}
 	}
 
-	func controllerDidChangeSection<T : Object>(controller: FetchedResultsController<T>, section: FetchResultsSectionInfo<T>, sectionIndex: UInt, changeType: NSFetchedResultsChangeType) {
-
-		let tableView = self.tableView
-		if changeType == NSFetchedResultsChangeType.Insert {
-			let indexSet = NSIndexSet(index: Int(sectionIndex))
-			tableView.insertSections(indexSet, withRowAnimation: UITableViewRowAnimation.Fade)
-		}
-		else if changeType == NSFetchedResultsChangeType.Delete {
-			let indexSet = NSIndexSet(index: Int(sectionIndex))
-			tableView.deleteSections(indexSet, withRowAnimation: UITableViewRowAnimation.Fade)
-		}
-	}
-
-	func controllerDidChangeContent<T : Object>(controller: FetchedResultsController<T>) {
+	func controllerDidChangeContent<T : Object>(_ controller: FetchedResultsController<T>) {
 		self.tableView.endUpdates()
 	}
 }

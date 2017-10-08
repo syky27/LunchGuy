@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Roobiq. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "RBQFetchRequest.h"
-#import "RBQSafeRealmObject.h"
+#import <RBQSafeRealmObject/RBQSafeRealmObject.h>
+#import <Foundation/Foundation.h>
 
 @import CoreData;
 
@@ -97,6 +97,22 @@
  */
 - (void)controllerDidChangeContent:(nonnull RBQFetchedResultsController *)controller;
 
+@optional
+
+/**
+ *  This method is called before the controller performs the fetch.
+ *
+ *  @param controller controller instance that will perform the fetch
+ */
+- (void)controllerWillPerformFetch:(nonnull RBQFetchedResultsController *)controller;
+
+/**
+ *  This method is called after the controller successfully fetches objects. It will not be called if the fetchRequest is nil.
+ *
+ *  @param controller controller instance that performed the fetch
+ */
+- (void)controllerDidPerformFetch:(nonnull RBQFetchedResultsController *)controller;
+
 @end
 
 #pragma mark - RBQFetchedResultsController
@@ -105,6 +121,8 @@
  *  The class is used to monitor changes from a RBQRealmNotificationManager to convert these changes into specific index path or section index changes. Typically this is used to back a UITableView and support animations when items are inserted, deleted, or changed.
  */
 @interface RBQFetchedResultsController : NSObject
+
+@property (nonatomic) bool logging;
 
 /**
  *  The fetch request for the controller
