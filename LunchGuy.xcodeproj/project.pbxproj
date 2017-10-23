@@ -13,9 +13,11 @@
 		3525C0CE1CF3BA7F002114A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525C0CD1CF3BA7F002114A6 /* AppDelegate.swift */; };
 		3525C0D51CF3BA7F002114A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3525C0D41CF3BA7F002114A6 /* Assets.xcassets */; };
 		3525C0FD1CF3BC2C002114A6 /* APIWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525C0FC1CF3BC2C002114A6 /* APIWrapper.swift */; };
-		3525C1061CF3C2EA002114A6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525C1051CF3C2EA002114A6 /* Model.swift */; };
 		3525C1091CF3C6FE002114A6 /* NSDate+LunchGuy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525C1081CF3C6FE002114A6 /* NSDate+LunchGuy.swift */; };
 		C541A03DE7E076A065DE7119 /* Pods_LunchGuy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F03A6E386F819E4353682F /* Pods_LunchGuy.framework */; };
+		D245DEF81F9E8749004BAE89 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D245DEF71F9E8749004BAE89 /* Restaurant.swift */; };
+		D245DEFA1F9E8755004BAE89 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = D245DEF91F9E8755004BAE89 /* Menu.swift */; };
+		D245DEFC1F9E875E004BAE89 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D245DEFB1F9E875E004BAE89 /* Meal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,12 +31,14 @@
 		3525C0D41CF3BA7F002114A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3525C0D91CF3BA7F002114A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3525C0FC1CF3BC2C002114A6 /* APIWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIWrapper.swift; sourceTree = "<group>"; };
-		3525C1051CF3C2EA002114A6 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		3525C1081CF3C6FE002114A6 /* NSDate+LunchGuy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+LunchGuy.swift"; sourceTree = "<group>"; };
 		46242A0D246587309CC58535 /* Pods_LunchGuyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LunchGuyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6215739716A95EC53174EA9D /* Pods-LunchGuyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LunchGuyUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LunchGuyUITests/Pods-LunchGuyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C4072E3BD0DE081841E829EF /* Pods-LunchGuyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LunchGuyUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LunchGuyUITests/Pods-LunchGuyUITests.release.xcconfig"; sourceTree = "<group>"; };
 		CB977E6F098BAF138A2713EE /* Pods-LunchGuy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LunchGuy.release.xcconfig"; path = "Pods/Target Support Files/Pods-LunchGuy/Pods-LunchGuy.release.xcconfig"; sourceTree = "<group>"; };
+		D245DEF71F9E8749004BAE89 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		D245DEF91F9E8755004BAE89 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		D245DEFB1F9E875E004BAE89 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		E6F55551A8E25408DCD24251 /* Pods-LunchGuy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LunchGuy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LunchGuy/Pods-LunchGuy.debug.xcconfig"; sourceTree = "<group>"; };
 		F8CCE357518BEBB622E0B2A2 /* Pods-LunchGuyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LunchGuyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LunchGuyTests/Pods-LunchGuyTests.release.xcconfig"; sourceTree = "<group>"; };
 		FB8CF7DCE0695EB1DEEE28B7 /* Pods_LunchGuyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LunchGuyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,7 +109,9 @@
 		3525C0FE1CF3BDA1002114A6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3525C1051CF3C2EA002114A6 /* Model.swift */,
+				D245DEF71F9E8749004BAE89 /* Restaurant.swift */,
+				D245DEF91F9E8755004BAE89 /* Menu.swift */,
+				D245DEFB1F9E875E004BAE89 /* Meal.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -303,9 +309,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3525C1061CF3C2EA002114A6 /* Model.swift in Sources */,
 				351CFA7A1CF3DD9E00D4146A /* MenuTableViewController.swift in Sources */,
+				D245DEFA1F9E8755004BAE89 /* Menu.swift in Sources */,
 				351CFA781CF3D96F00D4146A /* RestaurantTableViewController.swift in Sources */,
+				D245DEFC1F9E875E004BAE89 /* Meal.swift in Sources */,
+				D245DEF81F9E8749004BAE89 /* Restaurant.swift in Sources */,
 				3525C1091CF3C6FE002114A6 /* NSDate+LunchGuy.swift in Sources */,
 				3525C0FD1CF3BC2C002114A6 /* APIWrapper.swift in Sources */,
 				3525C0CE1CF3BA7F002114A6 /* AppDelegate.swift in Sources */,
