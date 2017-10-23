@@ -13,7 +13,7 @@
 		3525C0CE1CF3BA7F002114A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525C0CD1CF3BA7F002114A6 /* AppDelegate.swift */; };
 		3525C0D51CF3BA7F002114A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3525C0D41CF3BA7F002114A6 /* Assets.xcassets */; };
 		3525C0FD1CF3BC2C002114A6 /* APIWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525C0FC1CF3BC2C002114A6 /* APIWrapper.swift */; };
-		3525C1091CF3C6FE002114A6 /* NSDate+LunchGuy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525C1081CF3C6FE002114A6 /* NSDate+LunchGuy.swift */; };
+		3525C1091CF3C6FE002114A6 /* Date+LunchGuy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525C1081CF3C6FE002114A6 /* Date+LunchGuy.swift */; };
 		C541A03DE7E076A065DE7119 /* Pods_LunchGuy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F03A6E386F819E4353682F /* Pods_LunchGuy.framework */; };
 		D245DEF81F9E8749004BAE89 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D245DEF71F9E8749004BAE89 /* Restaurant.swift */; };
 		D245DEFA1F9E8755004BAE89 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = D245DEF91F9E8755004BAE89 /* Menu.swift */; };
@@ -31,7 +31,7 @@
 		3525C0D41CF3BA7F002114A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3525C0D91CF3BA7F002114A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3525C0FC1CF3BC2C002114A6 /* APIWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIWrapper.swift; sourceTree = "<group>"; };
-		3525C1081CF3C6FE002114A6 /* NSDate+LunchGuy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+LunchGuy.swift"; sourceTree = "<group>"; };
+		3525C1081CF3C6FE002114A6 /* Date+LunchGuy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+LunchGuy.swift"; sourceTree = "<group>"; };
 		46242A0D246587309CC58535 /* Pods_LunchGuyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LunchGuyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6215739716A95EC53174EA9D /* Pods-LunchGuyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LunchGuyUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LunchGuyUITests/Pods-LunchGuyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C4072E3BD0DE081841E829EF /* Pods-LunchGuyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LunchGuyUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LunchGuyUITests/Pods-LunchGuyUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -62,7 +62,7 @@
 				351CFA771CF3D96F00D4146A /* RestaurantTableViewController.swift */,
 				351CFA791CF3DD9E00D4146A /* MenuTableViewController.swift */,
 			);
-			name = ViewControllers;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		3525C0C11CF3BA7F002114A6 = {
@@ -103,7 +103,7 @@
 			children = (
 				3525C0FC1CF3BC2C002114A6 /* APIWrapper.swift */,
 			);
-			name = Services;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		3525C0FE1CF3BDA1002114A6 /* Model */ = {
@@ -113,15 +113,15 @@
 				D245DEF91F9E8755004BAE89 /* Menu.swift */,
 				D245DEFB1F9E875E004BAE89 /* Meal.swift */,
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		3525C1071CF3C6E9002114A6 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				3525C1081CF3C6FE002114A6 /* NSDate+LunchGuy.swift */,
+				3525C1081CF3C6FE002114A6 /* Date+LunchGuy.swift */,
 			);
-			name = Helpers;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		9595755FA50F98EBD05A8DFA /* Frameworks */ = {
@@ -314,7 +314,7 @@
 				351CFA781CF3D96F00D4146A /* RestaurantTableViewController.swift in Sources */,
 				D245DEFC1F9E875E004BAE89 /* Meal.swift in Sources */,
 				D245DEF81F9E8749004BAE89 /* Restaurant.swift in Sources */,
-				3525C1091CF3C6FE002114A6 /* NSDate+LunchGuy.swift in Sources */,
+				3525C1091CF3C6FE002114A6 /* Date+LunchGuy.swift in Sources */,
 				3525C0FD1CF3BC2C002114A6 /* APIWrapper.swift in Sources */,
 				3525C0CE1CF3BA7F002114A6 /* AppDelegate.swift in Sources */,
 			);
