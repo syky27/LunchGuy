@@ -1,5 +1,5 @@
 //
-//  NSDate+LunchGuy.swift
+//  Date+LunchGuy.swift
 //  LunchGuy
 //
 //  Created by Tomas Sykora, jr. on 24/05/16.
