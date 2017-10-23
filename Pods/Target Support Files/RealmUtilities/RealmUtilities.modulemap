@@ -1,6 +1,0 @@
-framework module RealmUtilities {
-  umbrella header "RealmUtilities-umbrella.h"
-
-  export *
-  module * { export * }
-}
