@@ -9,7 +9,6 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
-import RealmSwift
 
 class APIWrapper {
 
@@ -52,92 +51,52 @@ class APIWrapper {
         }
 	}
 
-	func getRestaurants(_ completion: @escaping (_ error: NSError?) -> Void) {
-        do {
-            let realm = try Realm()
-            try realm.write({
-                realm.deleteAll()
-            })
-        } catch (let e) {
-            debugPrint(e)
+    // MARK: Public API
+
+    func restaurants(completion: @escaping (Result<[Restaurant]>) -> Void) {
+        jsonRequest(router: .restaurants) { result in
+            let restaurantsResult = result.map { json in
+                return json.arrayValue.map { Restaurant(restaurantID: $0.stringValue) }
+            }
+
+            completion(restaurantsResult)
         }
-		Alamofire.request(Router.restaurants)
-			.validate(statusCode: 200..<300)
-			.validate(contentType: ["application/json"])
-			.responseJSON { response in
-				switch response.result {
-				case .success:
-					if let networkingData = response.data {
-						let json = JSON(data:networkingData)
-						for restaurantName in json.arrayObject! {
-							let restaurant = Restaurant()
-							restaurant.restaurantID = restaurantName as! String
-							self.getMenuForRestaurant(restaurant, completion: { (error) in
-								print(error?.localizedDescription)
-								completion(error)
-							})
-						}
+    }
 
-					}
-				case .failure:
-					completion(NSError(domain: "Networking", code: 1, userInfo: nil))
+    func menu(for restaurant: Restaurant, completion: @escaping (Result<Menu>) -> Void) {
+        jsonRequest(router: .menu(restaurant: restaurant)) { result in
+            let menuResult = result.map { json -> Menu in
+                let attributes = json["data"]["attributes"]
 
-				}
-		}
-	}
+                let meals = attributes["content"].dictionaryValue.flatMap { mealType, json -> [Meal] in
+                    return json.arrayValue.map { mealJSON in
+                        let data = mealJSON.arrayValue
+                        let price = data.count >= 2 ? data[1].int : nil
 
-	func getMenuForRestaurant(_ restaurant: Restaurant, completion: @escaping (_ error: NSError?) -> Void) {
-		Alamofire.request(Router.menu(restaurant: restaurant))
-			.validate(statusCode: 200..<300)
-			.validate(contentType: ["application/json"])
-			.responseJSON { response in
-				switch response.result {
-				case .success:
-					if let networkingData = response.data {
-						let json = JSON(data:networkingData)
+                        return Meal(type: mealType,
+                             name: data.first?.stringValue ?? "", // Just to satisfy Swift type system, always succeeds
+                             price: price,
+                             restaurantID: restaurant.restaurantID)
+                    }
+                }
 
-						do {
-							let realm = try Realm()
-							realm.beginWrite()
+                return Menu(menuID: attributes["title"].stringValue,
+                            cached: Date(),
+                            meals: meals)
+            }
 
-							let restaurant = Restaurant()
-							restaurant.restaurantID = json["data"]["attributes"]["title"].stringValue
-							realm.add(restaurant, update: true)
+            completion(menuResult)
+        }
+    }
 
-                            // It is wanted to delete all menus and replace them with new one as new day comes
-//                            let allMenus = realm.objects(Menu)
-//                            realm.delete(allMenus)
+    // MARK: Networking logic
 
-							let menu = Menu()
-							menu.menuID = json["data"]["attributes"]["title"].stringValue
-							menu.cached = Date.dateFromISOString(json["data"]["attributes"]["cached"].stringValue)
-							realm.add(menu, update: true)
-
-							for content in json["data"]["attributes"]["content"].dictionaryValue {
-								for obj in json["data"]["attributes"]["content"][content.0].arrayValue {
-									let meal = Meal()
-
-									meal.name = obj.first!.1.rawString()!
-									meal.price = obj[1].rawValue as? Int ?? 0
-									meal.type = content.0
-									meal.restaurantID = restaurant.restaurantID
-									meal.mealID = meal.restaurantID + meal.name
-									realm.add(meal, update: true)
-									menu.meals.append(meal)
-								}
-							}
-
-							try realm.commitWrite()
-							completion( nil)
-							NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateFinished"), object: nil)
-						} catch (let error as NSError) {
-							completion(error)
-						}
-					}
-				case .failure:
-					completion(NSError(domain: "Networking", code: 1, userInfo: nil))
-
-				}
-		}
-	}
+    private func jsonRequest(router: Router, completion: @escaping (Result<JSON>) -> Void) {
+        Alamofire.request(router)
+            .validate(statusCode: 200..<300)
+            .validate(contentType: ["application/json"])
+            .responseJSON { response in
+                completion(response.result.map(JSON.init))
+            }
+    }
 }

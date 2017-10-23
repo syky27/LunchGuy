@@ -12,10 +12,6 @@ target 'LunchGuy' do
   # FABRIC
   pod 'Fabric'
   pod 'Crashlytics'
-
-  # REALM
-  pod 'RealmSwift'
-  pod 'SwiftFetchedResultsController'
   
   target 'LunchGuyTests' do
     inherit! :search_paths
