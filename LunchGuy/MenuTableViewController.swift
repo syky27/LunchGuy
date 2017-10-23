@@ -26,7 +26,10 @@ class MenuTableViewController: UITableViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 44
 
-        loadMenu()
+        // Load menus if it was not loaded previously
+        if restaurant.menus.isEmpty {
+            loadMenu()
+        }
     }
 
     // MARK: - Table view data source
