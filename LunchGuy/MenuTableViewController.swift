@@ -11,12 +11,10 @@ import UIKit
 class MenuTableViewController: UITableViewController {
     var restaurant: Restaurant!
 
-    private var menu: Menu?
-
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: "reuseIdentifier2")
-        title = restaurant.restaurantID
+        title = restaurant.name
 
         tableView.tableFooterView = UIView()
         refreshControl = UIRefreshControl()
@@ -34,22 +32,22 @@ class MenuTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return restaurant.menus.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return menu?.meals.count ?? 0
+        return restaurant.menus[section].meals.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "reuseIdentifier2")
-        let meal = menu?.meals[indexPath.row]
+        let meal = restaurant.menus[indexPath.section].meals[indexPath.row]
 
-        cell.textLabel?.text = meal!.name
+        cell.textLabel?.text = meal.name
         cell.textLabel?.numberOfLines = 0
         cell.textLabel?.frame = CGRect(x: cell.textLabel!.frame.origin.x, y: cell.textLabel!.frame.origin.y,
                                        width: 50, height: cell.textLabel!.frame.size.height)
-        cell.detailTextLabel?.text = meal?.price != nil ? "\(meal!.price!) Kč" : "Cena není známa"
+        cell.detailTextLabel?.text = meal.price.flatMap { "\($0) Kč" } ?? "Cena není známa"
 
         return cell
     }
@@ -59,12 +57,12 @@ class MenuTableViewController: UITableViewController {
     @objc private func loadMenu() {
         refreshControl?.beginRefreshing()
 
-        APIWrapper.instance.menu(for: restaurant) { [weak self] result in
+        APIWrapper.instance.menus(for: restaurant) { [weak self] result in
             self?.refreshControl?.endRefreshing()
 
             switch result {
-            case let .success(menu):
-                self?.menu = menu
+            case let .success(menus):
+                self?.restaurant.menus = menus
                 self?.tableView.reloadData()
             case let .failure(error):
                 print(error)

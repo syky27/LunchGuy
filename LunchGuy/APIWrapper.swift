@@ -56,33 +56,33 @@ class APIWrapper {
     func restaurants(completion: @escaping (Result<[Restaurant]>) -> Void) {
         jsonRequest(router: .restaurants) { result in
             let restaurantsResult = result.map { json in
-                return json.arrayValue.map { Restaurant(restaurantID: $0.stringValue) }
+                return json.arrayValue.map { value -> Restaurant in
+                    let identifier = value.stringValue
+
+                    return Restaurant(restaurantID: identifier, name: identifier, menus: [])
+                }
             }
 
             completion(restaurantsResult)
         }
     }
 
-    func menu(for restaurant: Restaurant, completion: @escaping (Result<Menu>) -> Void) {
+    func menus(for restaurant: Restaurant, completion: @escaping (Result<[Menu]>) -> Void) {
         jsonRequest(router: .menu(restaurant: restaurant)) { result in
-            let menuResult = result.map { json -> Menu in
+            let menuResult = result.map { json -> [Menu] in
                 let attributes = json["data"]["attributes"]
 
-                let meals = attributes["content"].dictionaryValue.flatMap { mealType, json -> [Meal] in
-                    return json.arrayValue.map { mealJSON in
+                return attributes["content"].dictionaryValue.map { menuCategory, json -> Menu in
+                    let meals = json.arrayValue.map { mealJSON -> Meal in
                         let data = mealJSON.arrayValue
                         let price = data.count >= 2 ? data[1].int : nil
+                        let name = data.first?.stringValue ?? ""
 
-                        return Meal(type: mealType,
-                             name: data.first?.stringValue ?? "", // Just to satisfy Swift type system, always succeeds
-                             price: price,
-                             restaurantID: restaurant.restaurantID)
+                        return Meal(name: name, price: price)
                     }
-                }
 
-                return Menu(menuID: attributes["title"].stringValue,
-                            cached: Date(),
-                            meals: meals)
+                    return Menu(category: menuCategory, meals: meals)
+                }
             }
 
             completion(menuResult)
