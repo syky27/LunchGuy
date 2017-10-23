@@ -7,35 +7,24 @@
 //
 
 import Foundation
-import RealmSwift
-import SwiftyJSON
 
-class Restaurant: Object {
-	@objc dynamic var restaurantID = ""
-
-	override static func primaryKey() -> String? {
-		return "restaurantID"
-	}
+struct Restaurant {
+    let restaurantID: String
 }
 
-class Menu: Object {
-	@objc dynamic var menuID = ""
-	@objc dynamic var cached = Date()
-	var meals = List<Meal>()
-
-	override static func primaryKey() -> String? {
-		return "menuID"
-	}
+struct Menu {
+    let menuID: String
+    let cached: Date
+    let meals: [Meal]
 }
 
-class Meal: Object {
-	@objc dynamic var mealID = ""
-	@objc dynamic var type = ""
-	@objc dynamic var name = ""
-	@objc dynamic var price = 0
-	@objc dynamic var restaurantID = ""
+struct Meal {
+    let type: String
+    let name: String
+    let price: Int?
+    let restaurantID: String
 
-	override static func primaryKey() -> String? {
-		return "mealID"
-	}
+    var mealID: String {
+        return "\(restaurantID)_\(name)"
+    }
 }

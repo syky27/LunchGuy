@@ -7,122 +7,68 @@
 //
 
 import UIKit
-import RealmSwift
-import SwiftFetchedResultsController
-import SafeRealmObject
 
 class MenuTableViewController: UITableViewController {
-    var fetchedResultsController: FetchedResultsController<Meal>?
-    var restaurantID: String!
+    var restaurant: Restaurant!
+
+    private var menu: Menu?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: "reuseIdentifier2")
-        title = restaurantID
+        title = restaurant.restaurantID
 
-        let predicate = NSPredicate(format: "restaurantID == %@", restaurantID)
-        let realm = try! Realm()
-        let fetchRequest = FetchRequest<Meal>(realm: realm, predicate: predicate)
-        let sortDescriptor = SortDescriptor(property: "type", ascending: false)
-        fetchRequest.sortDescriptors = [sortDescriptor]
-
-        self.fetchedResultsController = FetchedResultsController<Meal>(fetchRequest: fetchRequest, sectionNameKeyPath: "type", cacheName: "testCache")
-        self.fetchedResultsController!.delegate = self
-        self.fetchedResultsController!.performFetch()
+        tableView.tableFooterView = UIView()
+        refreshControl = UIRefreshControl()
+        refreshControl!.backgroundColor = UIColor.white
+        refreshControl?.addTarget(self,
+                                  action: #selector(loadMenu),
+                                  for: UIControlEvents.valueChanged)
 
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 44
 
-        NotificationCenter.default
-            .addObserver(self,
-                         selector: #selector(MenuTableViewController.reloadTableView),
-                         name: NSNotification.Name(rawValue: "updateFinished"),
-                         object: nil)
-
-    }
-
-    @objc func reloadTableView() {
-        tableView.reloadData()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+        loadMenu()
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return (fetchedResultsController?.numberOfSections())!
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (fetchedResultsController?.numberOfRowsForSectionIndex(section))!
+        return menu?.meals.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "reuseIdentifier2")
-        let meal = fetchedResultsController?.objectAtIndexPath(indexPath)
+        let meal = menu?.meals[indexPath.row]
+
         cell.textLabel?.text = meal!.name
         cell.textLabel?.numberOfLines = 0
-        cell.textLabel?.frame = CGRect(x: cell.textLabel!.frame.origin.x, y: cell.textLabel!.frame.origin.y, width: 50, height: cell.textLabel!.frame.size.height)
-        cell.detailTextLabel?.text = "\(meal!.price) Kč"
-        cell.detailTextLabel?.text = meal!.price < 1 ? "Cena není známa" : "\(meal!.price) Kč"
+        cell.textLabel?.frame = CGRect(x: cell.textLabel!.frame.origin.x, y: cell.textLabel!.frame.origin.y,
+                                       width: 50, height: cell.textLabel!.frame.size.height)
+        cell.detailTextLabel?.text = meal?.price != nil ? "\(meal!.price!) Kč" : "Cena není známa"
 
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return fetchedResultsController?.sectionIndexTitles![section]
-    }
+    // MARK: - Network logic
 
-}
+    @objc private func loadMenu() {
+        refreshControl?.beginRefreshing()
 
-extension MenuTableViewController: FetchedResultsControllerDelegate {
-    func controllerWillChangeContent<T>(_ controller: FetchedResultsController<T>) {
-        self.tableView.beginUpdates()
-    }
+        APIWrapper.instance.menu(for: restaurant) { [weak self] result in
+            self?.refreshControl?.endRefreshing()
 
-    func controller<T>(_ controller: FetchedResultsController<T>,
-                       didChangeObject anObject: SafeObject<T>,
-                       atIndexPath indexPath: IndexPath?,
-                       forChangeType type: NSFetchedResultsChangeType,
-                       newIndexPath: IndexPath?) {
-
-        let tableView = self.tableView
-
-        switch type {
-        case .insert:
-            tableView?.insertRows(at: [newIndexPath!], with: UITableViewRowAnimation.fade)
-
-        case .delete:
-            tableView?.deleteRows(at: [indexPath!], with: UITableViewRowAnimation.fade)
-
-        case .update:
-            tableView?.reloadRows(at: [indexPath!], with: UITableViewRowAnimation.fade)
-
-        case .move:
-            tableView?.deleteRows(at: [indexPath!], with: UITableViewRowAnimation.fade)
-            tableView?.insertRows(at: [newIndexPath!], with: UITableViewRowAnimation.fade)
+            switch result {
+            case let .success(menu):
+                self?.menu = menu
+                self?.tableView.reloadData()
+            case let .failure(error):
+                print(error)
+            }
         }
-
-    }
-
-    func controllerDidChangeSection<T>(_ controller: FetchedResultsController<T>,
-                                            section: FetchResultsSectionInfo<T>,
-                                       sectionIndex: UInt,
-                                         changeType: NSFetchedResultsChangeType) {
-
-        let tableView = self.tableView
-        if changeType == NSFetchedResultsChangeType.insert {
-            let indexSet = IndexSet(integer: Int(sectionIndex))
-            tableView?.insertSections(indexSet, with: UITableViewRowAnimation.fade)
-        } else if changeType == NSFetchedResultsChangeType.delete {
-            let indexSet = IndexSet(integer: Int(sectionIndex))
-            tableView?.deleteSections(indexSet, with: UITableViewRowAnimation.fade)
-        }
-    }
-
-    func controllerDidChangeContent<T>(_ controller: FetchedResultsController<T>) {
-        self.tableView.endUpdates()
     }
 }

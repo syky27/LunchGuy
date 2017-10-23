@@ -7,54 +7,24 @@
 //
 
 import UIKit
-import RealmSwift
 
 class RestaurantTableViewController: UITableViewController {
-	var restaurants: Results<Restaurant>!
+    var restaurants: [Restaurant] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-		title = "Restaurace"
+
+        title = "Restaurace"
+        tableView.tableFooterView = UIView()
 		refreshControl = UIRefreshControl()
 		refreshControl!.backgroundColor = UIColor.white
 		refreshControl?.addTarget(self,
-		                          action: #selector(RestaurantTableViewController.downloadNewData),
+		                          action: #selector(loadRestaurants),
 		                          for: UIControlEvents.valueChanged)
 
 		self.tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: "reuseIdentifier")
 
-		NotificationCenter.default
-			.addObserver(self,
-			             selector: #selector(RestaurantTableViewController.fetchNewData),
-			             name: NSNotification.Name(rawValue: "updateFinished"),
-			             object: nil)
-		fetchNewData()
-    }
-
-	@objc func downloadNewData() {
-		APIWrapper.instance.getRestaurants { (error) in
-			self.refreshControl?.endRefreshing()
-			if error != nil {
-				print(error)
-			} else {
-				self.fetchNewData()
-			}
-		}
-
-	}
-
-	@objc func fetchNewData() {
-		do {
-			let realm = try Realm()
-			restaurants = realm.objects(Restaurant.self)
-			tableView.reloadData()
-		} catch {
-			print(error)
-		}
-	}
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+        loadRestaurants()
     }
 
     // MARK: - Table view data source
@@ -69,14 +39,36 @@ class RestaurantTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-		cell.textLabel?.text = restaurants[indexPath.row].restaurantID
+
+        cell.textLabel?.text = restaurants[indexPath.row].restaurantID
+
         return cell
     }
 
+    // MARK: - Table view delegate
+
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let menuViewController = MenuTableViewController()
-		menuViewController.restaurantID = restaurants[indexPath.row].restaurantID
+
+        menuViewController.restaurant = restaurants[indexPath.row]
 		navigationController?.pushViewController(menuViewController, animated: true)
 	}
 
+    // MARK: - Network logic
+
+    @objc func loadRestaurants() {
+        refreshControl?.beginRefreshing()
+
+        APIWrapper.instance.restaurants { [weak self] result in
+            self?.refreshControl?.endRefreshing()
+
+            switch result {
+            case let .success(restaurants):
+                self?.restaurants = restaurants
+                self?.tableView.reloadData()
+            case let .failure(error):
+                print(error)
+            }
+        }
+    }
 }
