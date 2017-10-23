@@ -7,38 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2085320DD5DC579F5868699A /* Pods_LunchGuyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46242A0D246587309CC58535 /* Pods_LunchGuyUITests.framework */; };
 		351CFA781CF3D96F00D4146A /* RestaurantTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351CFA771CF3D96F00D4146A /* RestaurantTableViewController.swift */; };
 		351CFA7A1CF3DD9E00D4146A /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351CFA791CF3DD9E00D4146A /* MenuTableViewController.swift */; };
 		3520D8A81F89AEF50025610B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3520D8A71F89AEF40025610B /* LaunchScreen.storyboard */; };
 		3525C0CE1CF3BA7F002114A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525C0CD1CF3BA7F002114A6 /* AppDelegate.swift */; };
-		3525C0D01CF3BA7F002114A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525C0CF1CF3BA7F002114A6 /* ViewController.swift */; };
 		3525C0D51CF3BA7F002114A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3525C0D41CF3BA7F002114A6 /* Assets.xcassets */; };
-		3525C0E31CF3BA7F002114A6 /* LunchGuyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525C0E21CF3BA7F002114A6 /* LunchGuyTests.swift */; };
-		3525C0EE1CF3BA7F002114A6 /* LunchGuyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525C0ED1CF3BA7F002114A6 /* LunchGuyUITests.swift */; };
 		3525C0FD1CF3BC2C002114A6 /* APIWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525C0FC1CF3BC2C002114A6 /* APIWrapper.swift */; };
 		3525C1061CF3C2EA002114A6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525C1051CF3C2EA002114A6 /* Model.swift */; };
 		3525C1091CF3C6FE002114A6 /* NSDate+LunchGuy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525C1081CF3C6FE002114A6 /* NSDate+LunchGuy.swift */; };
-		77E2D65270D1963012342F1F /* Pods_LunchGuyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB8CF7DCE0695EB1DEEE28B7 /* Pods_LunchGuyTests.framework */; };
 		C541A03DE7E076A065DE7119 /* Pods_LunchGuy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F03A6E386F819E4353682F /* Pods_LunchGuy.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		3525C0DF1CF3BA7F002114A6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3525C0C21CF3BA7F002114A6 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3525C0C91CF3BA7F002114A6;
-			remoteInfo = LunchGuy;
-		};
-		3525C0EA1CF3BA7F002114A6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3525C0C21CF3BA7F002114A6 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3525C0C91CF3BA7F002114A6;
-			remoteInfo = LunchGuy;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		02C345D6F55F5B2D9E1DD44E /* Pods-LunchGuyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LunchGuyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LunchGuyTests/Pods-LunchGuyTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -48,15 +26,8 @@
 		3520D8A71F89AEF40025610B /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3525C0CA1CF3BA7F002114A6 /* LunchGuy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LunchGuy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3525C0CD1CF3BA7F002114A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3525C0CF1CF3BA7F002114A6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3525C0D41CF3BA7F002114A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3525C0D91CF3BA7F002114A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3525C0DE1CF3BA7F002114A6 /* LunchGuyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LunchGuyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3525C0E21CF3BA7F002114A6 /* LunchGuyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchGuyTests.swift; sourceTree = "<group>"; };
-		3525C0E41CF3BA7F002114A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3525C0E91CF3BA7F002114A6 /* LunchGuyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LunchGuyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3525C0ED1CF3BA7F002114A6 /* LunchGuyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchGuyUITests.swift; sourceTree = "<group>"; };
-		3525C0EF1CF3BA7F002114A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3525C0FC1CF3BC2C002114A6 /* APIWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIWrapper.swift; sourceTree = "<group>"; };
 		3525C1051CF3C2EA002114A6 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		3525C1081CF3C6FE002114A6 /* NSDate+LunchGuy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+LunchGuy.swift"; sourceTree = "<group>"; };
@@ -78,22 +49,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3525C0DB1CF3BA7F002114A6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				77E2D65270D1963012342F1F /* Pods_LunchGuyTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3525C0E61CF3BA7F002114A6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2085320DD5DC579F5868699A /* Pods_LunchGuyUITests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -110,8 +65,6 @@
 			isa = PBXGroup;
 			children = (
 				3525C0CC1CF3BA7F002114A6 /* LunchGuy */,
-				3525C0E11CF3BA7F002114A6 /* LunchGuyTests */,
-				3525C0EC1CF3BA7F002114A6 /* LunchGuyUITests */,
 				3525C0CB1CF3BA7F002114A6 /* Products */,
 				B60B3C31A36A598ACFF21781 /* Pods */,
 				9595755FA50F98EBD05A8DFA /* Frameworks */,
@@ -122,8 +75,6 @@
 			isa = PBXGroup;
 			children = (
 				3525C0CA1CF3BA7F002114A6 /* LunchGuy.app */,
-				3525C0DE1CF3BA7F002114A6 /* LunchGuyTests.xctest */,
-				3525C0E91CF3BA7F002114A6 /* LunchGuyUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -136,30 +87,11 @@
 				3525C0FE1CF3BDA1002114A6 /* Model */,
 				3525C0FB1CF3BC21002114A6 /* Services */,
 				3525C0CD1CF3BA7F002114A6 /* AppDelegate.swift */,
-				3525C0CF1CF3BA7F002114A6 /* ViewController.swift */,
 				3525C0D41CF3BA7F002114A6 /* Assets.xcassets */,
 				3525C0D91CF3BA7F002114A6 /* Info.plist */,
 				3520D8A71F89AEF40025610B /* LaunchScreen.storyboard */,
 			);
 			path = LunchGuy;
-			sourceTree = "<group>";
-		};
-		3525C0E11CF3BA7F002114A6 /* LunchGuyTests */ = {
-			isa = PBXGroup;
-			children = (
-				3525C0E21CF3BA7F002114A6 /* LunchGuyTests.swift */,
-				3525C0E41CF3BA7F002114A6 /* Info.plist */,
-			);
-			path = LunchGuyTests;
-			sourceTree = "<group>";
-		};
-		3525C0EC1CF3BA7F002114A6 /* LunchGuyUITests */ = {
-			isa = PBXGroup;
-			children = (
-				3525C0ED1CF3BA7F002114A6 /* LunchGuyUITests.swift */,
-				3525C0EF1CF3BA7F002114A6 /* Info.plist */,
-			);
-			path = LunchGuyUITests;
 			sourceTree = "<group>";
 		};
 		3525C0FB1CF3BC21002114A6 /* Services */ = {
@@ -234,48 +166,6 @@
 			productReference = 3525C0CA1CF3BA7F002114A6 /* LunchGuy.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3525C0DD1CF3BA7F002114A6 /* LunchGuyTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3525C0F51CF3BA7F002114A6 /* Build configuration list for PBXNativeTarget "LunchGuyTests" */;
-			buildPhases = (
-				E117C3E0489D15DDFCFA8184 /* [CP] Check Pods Manifest.lock */,
-				3525C0DA1CF3BA7F002114A6 /* Sources */,
-				3525C0DB1CF3BA7F002114A6 /* Frameworks */,
-				3525C0DC1CF3BA7F002114A6 /* Resources */,
-				95C0144EB434A8EFE2A358A9 /* [CP] Embed Pods Frameworks */,
-				E5FE295F8B5FA0D42B4FC050 /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3525C0E01CF3BA7F002114A6 /* PBXTargetDependency */,
-			);
-			name = LunchGuyTests;
-			productName = LunchGuyTests;
-			productReference = 3525C0DE1CF3BA7F002114A6 /* LunchGuyTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		3525C0E81CF3BA7F002114A6 /* LunchGuyUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3525C0F81CF3BA7F002114A6 /* Build configuration list for PBXNativeTarget "LunchGuyUITests" */;
-			buildPhases = (
-				B9C5A492D24DC01DF71FC14F /* [CP] Check Pods Manifest.lock */,
-				3525C0E51CF3BA7F002114A6 /* Sources */,
-				3525C0E61CF3BA7F002114A6 /* Frameworks */,
-				3525C0E71CF3BA7F002114A6 /* Resources */,
-				01CFD845311269605E39148A /* [CP] Copy Pods Resources */,
-				763298713491909FD8DA4F03 /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3525C0EB1CF3BA7F002114A6 /* PBXTargetDependency */,
-			);
-			name = LunchGuyUITests;
-			productName = LunchGuyUITests;
-			productReference = 3525C0E91CF3BA7F002114A6 /* LunchGuyUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -291,16 +181,6 @@
 						DevelopmentTeam = CDMJRT8WJB;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Manual;
-					};
-					3525C0DD1CF3BA7F002114A6 = {
-						CreatedOnToolsVersion = 7.3;
-						LastSwiftMigration = 0900;
-						TestTargetID = 3525C0C91CF3BA7F002114A6;
-					};
-					3525C0E81CF3BA7F002114A6 = {
-						CreatedOnToolsVersion = 7.3;
-						LastSwiftMigration = 0900;
-						TestTargetID = 3525C0C91CF3BA7F002114A6;
 					};
 				};
 			};
@@ -318,8 +198,6 @@
 			projectRoot = "";
 			targets = (
 				3525C0C91CF3BA7F002114A6 /* LunchGuy */,
-				3525C0DD1CF3BA7F002114A6 /* LunchGuyTests */,
-				3525C0E81CF3BA7F002114A6 /* LunchGuyUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -334,38 +212,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3525C0DC1CF3BA7F002114A6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3525C0E71CF3BA7F002114A6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		01CFD845311269605E39148A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LunchGuyUITests/Pods-LunchGuyUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		3520D8A41F89A8340025610B /* Lint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -412,21 +261,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		763298713491909FD8DA4F03 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LunchGuyUITests/Pods-LunchGuyUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		87E5CB78068CEFDF3CCCA078 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -447,21 +281,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LunchGuy/Pods-LunchGuy-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		95C0144EB434A8EFE2A358A9 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LunchGuyTests/Pods-LunchGuyTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		ABEA4579578290585B7B6A3C /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -477,57 +296,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LunchGuy/Pods-LunchGuy-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B9C5A492D24DC01DF71FC14F /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-LunchGuyUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E117C3E0489D15DDFCFA8184 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-LunchGuyTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E5FE295F8B5FA0D42B4FC050 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LunchGuyTests/Pods-LunchGuyTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -537,7 +305,6 @@
 			files = (
 				3525C1061CF3C2EA002114A6 /* Model.swift in Sources */,
 				351CFA7A1CF3DD9E00D4146A /* MenuTableViewController.swift in Sources */,
-				3525C0D01CF3BA7F002114A6 /* ViewController.swift in Sources */,
 				351CFA781CF3D96F00D4146A /* RestaurantTableViewController.swift in Sources */,
 				3525C1091CF3C6FE002114A6 /* NSDate+LunchGuy.swift in Sources */,
 				3525C0FD1CF3BC2C002114A6 /* APIWrapper.swift in Sources */,
@@ -545,36 +312,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3525C0DA1CF3BA7F002114A6 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3525C0E31CF3BA7F002114A6 /* LunchGuyTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3525C0E51CF3BA7F002114A6 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3525C0EE1CF3BA7F002114A6 /* LunchGuyUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		3525C0E01CF3BA7F002114A6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3525C0C91CF3BA7F002114A6 /* LunchGuy */;
-			targetProxy = 3525C0DF1CF3BA7F002114A6 /* PBXContainerItemProxy */;
-		};
-		3525C0EB1CF3BA7F002114A6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3525C0C91CF3BA7F002114A6 /* LunchGuy */;
-			targetProxy = 3525C0EA1CF3BA7F002114A6 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		3525C0F01CF3BA7F002114A6 /* Debug */ = {
@@ -725,64 +463,6 @@
 			};
 			name = Release;
 		};
-		3525C0F61CF3BA7F002114A6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 02C345D6F55F5B2D9E1DD44E /* Pods-LunchGuyTests.debug.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = LunchGuyTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cz.ajty.LunchGuyTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LunchGuy.app/LunchGuy";
-			};
-			name = Debug;
-		};
-		3525C0F71CF3BA7F002114A6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F8CCE357518BEBB622E0B2A2 /* Pods-LunchGuyTests.release.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = LunchGuyTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cz.ajty.LunchGuyTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LunchGuy.app/LunchGuy";
-			};
-			name = Release;
-		};
-		3525C0F91CF3BA7F002114A6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6215739716A95EC53174EA9D /* Pods-LunchGuyUITests.debug.xcconfig */;
-			buildSettings = {
-				INFOPLIST_FILE = LunchGuyUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cz.ajty.LunchGuyUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
-				TEST_TARGET_NAME = LunchGuy;
-			};
-			name = Debug;
-		};
-		3525C0FA1CF3BA7F002114A6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C4072E3BD0DE081841E829EF /* Pods-LunchGuyUITests.release.xcconfig */;
-			buildSettings = {
-				INFOPLIST_FILE = LunchGuyUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cz.ajty.LunchGuyUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
-				TEST_TARGET_NAME = LunchGuy;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -800,24 +480,6 @@
 			buildConfigurations = (
 				3525C0F31CF3BA7F002114A6 /* Debug */,
 				3525C0F41CF3BA7F002114A6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3525C0F51CF3BA7F002114A6 /* Build configuration list for PBXNativeTarget "LunchGuyTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3525C0F61CF3BA7F002114A6 /* Debug */,
-				3525C0F71CF3BA7F002114A6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3525C0F81CF3BA7F002114A6 /* Build configuration list for PBXNativeTarget "LunchGuyUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3525C0F91CF3BA7F002114A6 /* Debug */,
-				3525C0FA1CF3BA7F002114A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
