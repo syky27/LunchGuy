@@ -40,7 +40,7 @@ class RestaurantTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
-        cell.textLabel?.text = restaurants[indexPath.row].restaurantID
+        cell.textLabel?.text = restaurants[indexPath.row].name
 
         return cell
     }

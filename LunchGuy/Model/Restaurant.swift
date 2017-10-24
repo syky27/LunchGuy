@@ -8,14 +8,19 @@
 
 import Foundation
 
-class Restaurant {
-    let restaurantID: String
+class Restaurant: Decodable {
     let name: String
-    var menus: [Menu]
+    var menu: Menu?
 
-    init(restaurantID: String, name: String, menus: [Menu]) {
-        self.restaurantID = restaurantID
+    init(name: String, menu: Menu? = nil) {
         self.name = name
-        self.menus = menus
+        self.menu = menu
+    }
+
+    required convenience init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        let restaurantName = try container.decode(String.self)
+
+        self.init(name: restaurantName)
     }
 }
