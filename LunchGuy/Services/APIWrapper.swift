@@ -39,7 +39,7 @@ class APIWrapper {
 			case .restaurants:
 				return "/restaurants.json"
 			case .menu(let restaurant):
-                return "/restaurants/\(restaurant.restaurantID)/menu.json"
+                return "/restaurants/\(restaurant.name)/menu.json"
 			}
 		}
 
@@ -54,49 +54,27 @@ class APIWrapper {
     // MARK: Public API
 
     func restaurants(completion: @escaping (Result<[Restaurant]>) -> Void) {
-        jsonRequest(router: .restaurants) { result in
-            let restaurantsResult = result.map { json in
-                return json.arrayValue.map { value -> Restaurant in
-                    let identifier = value.stringValue
-
-                    return Restaurant(restaurantID: identifier, name: identifier, menus: [])
-                }
-            }
-
-            completion(restaurantsResult)
-        }
+        jsonRequest(ofType: [Restaurant].self, router: .restaurants, completion: completion)
     }
 
-    func menus(for restaurant: Restaurant, completion: @escaping (Result<[Menu]>) -> Void) {
-        jsonRequest(router: .menu(restaurant: restaurant)) { result in
-            let menuResult = result.map { json -> [Menu] in
-                let attributes = json["data"]["attributes"]
-
-                return attributes["content"].dictionaryValue.map { menuCategory, json -> Menu in
-                    let meals = json.arrayValue.map { mealJSON -> Meal in
-                        let data = mealJSON.arrayValue
-                        let price = data.count >= 2 ? data[1].int : nil
-                        let name = data.first?.stringValue ?? ""
-
-                        return Meal(name: name, price: price)
-                    }
-
-                    return Menu(category: menuCategory, meals: meals)
-                }
-            }
-
-            completion(menuResult)
-        }
+    func menu(for restaurant: Restaurant, completion: @escaping (Result<Menu>) -> Void) {
+        jsonRequest(ofType: Menu.self, router: .menu(restaurant: restaurant), completion: completion)
     }
 
     // MARK: Networking logic
 
-    private func jsonRequest(router: Router, completion: @escaping (Result<JSON>) -> Void) {
+    private func jsonRequest<T: Decodable>(ofType type: T.Type, router: Router, completion: @escaping (Result<T>) -> Void) {
         Alamofire.request(router)
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
-            .responseJSON { response in
-                completion(response.result.map(JSON.init))
+            .responseData { response in
+                let objectResponse = response.result.flatMap { data -> T in
+                    let decoder = JSONDecoder()
+
+                    return try decoder.decode(T.self, from: data)
+                }
+
+                completion(objectResponse)
             }
     }
 }
