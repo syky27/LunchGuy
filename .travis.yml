@@ -22,6 +22,8 @@ script:
     then bundle exec fastlane release; 
     elif [ $TRAVIS_BRANCH == "master" ];
     then bundle exec fastlane beta; 
+    elif [ $TRAVIS_PULL_REQUEST ];
+    then bundle exec fastlane pr; 
     else bundle exec fastlane build; fi
 
 
