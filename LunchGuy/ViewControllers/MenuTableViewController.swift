@@ -55,6 +55,10 @@ class MenuTableViewController: UITableViewController {
         return cell
     }
 
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return restaurant.menu?.mealCategories[section].category
+    }
+
     // MARK: - Network logic
 
     @objc private func loadMenu() {
