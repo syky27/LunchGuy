@@ -19,6 +19,7 @@
 		D245DEF81F9E8749004BAE89 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D245DEF71F9E8749004BAE89 /* Restaurant.swift */; };
 		D245DEFA1F9E8755004BAE89 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = D245DEF91F9E8755004BAE89 /* Menu.swift */; };
 		D245DEFC1F9E875E004BAE89 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D245DEFB1F9E875E004BAE89 /* Meal.swift */; };
+		D289BB2B1F9F992A00BD126B /* MealCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D289BB2A1F9F992A00BD126B /* MealCategory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		D245DEF71F9E8749004BAE89 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		D245DEF91F9E8755004BAE89 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		D245DEFB1F9E875E004BAE89 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		D289BB2A1F9F992A00BD126B /* MealCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCategory.swift; sourceTree = "<group>"; };
 		E6F55551A8E25408DCD24251 /* Pods-LunchGuy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LunchGuy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LunchGuy/Pods-LunchGuy.debug.xcconfig"; sourceTree = "<group>"; };
 		F8CCE357518BEBB622E0B2A2 /* Pods-LunchGuyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LunchGuyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LunchGuyTests/Pods-LunchGuyTests.release.xcconfig"; sourceTree = "<group>"; };
 		FB8CF7DCE0695EB1DEEE28B7 /* Pods_LunchGuyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LunchGuyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,6 +115,7 @@
 			children = (
 				D245DEF71F9E8749004BAE89 /* Restaurant.swift */,
 				D245DEF91F9E8755004BAE89 /* Menu.swift */,
+				D289BB2A1F9F992A00BD126B /* MealCategory.swift */,
 				D245DEFB1F9E875E004BAE89 /* Meal.swift */,
 			);
 			path = Model;
@@ -314,6 +317,7 @@
 			files = (
 				351CFA7A1CF3DD9E00D4146A /* MenuTableViewController.swift in Sources */,
 				D245DEFA1F9E8755004BAE89 /* Menu.swift in Sources */,
+				D289BB2B1F9F992A00BD126B /* MealCategory.swift in Sources */,
 				351CFA781CF3D96F00D4146A /* RestaurantTableViewController.swift in Sources */,
 				D245DEFC1F9E875E004BAE89 /* Meal.swift in Sources */,
 				D245DEF81F9E8749004BAE89 /* Restaurant.swift in Sources */,
