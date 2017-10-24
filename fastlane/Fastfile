@@ -8,6 +8,7 @@ platform :ios do
     setup_travis
     match(type: "development")
     match(type: "appstore")
+    cocoapods
     increment_versions
   end
 
