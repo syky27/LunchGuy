@@ -45,6 +45,16 @@ fastlane ios beta
 fastlane ios release
 ```
 
+### ios build
+```
+fastlane ios build
+```
+
+### ios pr
+```
+fastlane ios pr
+```
+
 ### ios increment_versions
 ```
 fastlane ios increment_versions

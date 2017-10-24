@@ -6,8 +6,6 @@ default_platform :ios
 platform :ios do
   before_all do
     setup_travis
-    match(type: "development")
-    match(type: "appstore")
     cocoapods
     increment_versions
   end
@@ -72,6 +70,15 @@ platform :ios do
       )
   end
 
+  lane :pr do 
+    xcodebuild(
+      scheme: "LunchGuy",
+      workspace: "LunchGuy.xcworkspace",
+      configuration: "Debug",
+      xcargs: "CODE_SIGN_IDENTITY=\"\" CODE_SIGNING_REQUIRED=NO"
+    )
+  end
+
   lane :increment_versions do
     # Set version number to the one at the top of the CHANGELOG
     ci_job_id = ENV["TRAVIS_BUILD_NUMBER"] || '42'
@@ -109,9 +116,9 @@ platform :ios do
   end
 
   after_all do |lane|
-    delete_keychain(
-      name: ENV["MATCH_KEYCHAIN_NAME"]
-      )
+    # delete_keychain(
+    #   name: ENV["MATCH_KEYCHAIN_NAME"]
+    #   )
   end
 
   error do |lane, exception|
