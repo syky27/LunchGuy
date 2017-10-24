@@ -14,6 +14,7 @@
 		3525C0D51CF3BA7F002114A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3525C0D41CF3BA7F002114A6 /* Assets.xcassets */; };
 		3525C0FD1CF3BC2C002114A6 /* APIWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525C0FC1CF3BC2C002114A6 /* APIWrapper.swift */; };
 		3525C1091CF3C6FE002114A6 /* Date+LunchGuy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525C1081CF3C6FE002114A6 /* Date+LunchGuy.swift */; };
+		352D47B01F9F5B42008E1A58 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352D47AF1F9F5B42008E1A58 /* APIError.swift */; };
 		C541A03DE7E076A065DE7119 /* Pods_LunchGuy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F03A6E386F819E4353682F /* Pods_LunchGuy.framework */; };
 		D245DEF81F9E8749004BAE89 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D245DEF71F9E8749004BAE89 /* Restaurant.swift */; };
 		D245DEFA1F9E8755004BAE89 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = D245DEF91F9E8755004BAE89 /* Menu.swift */; };
@@ -32,6 +33,7 @@
 		3525C0D91CF3BA7F002114A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3525C0FC1CF3BC2C002114A6 /* APIWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIWrapper.swift; sourceTree = "<group>"; };
 		3525C1081CF3C6FE002114A6 /* Date+LunchGuy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+LunchGuy.swift"; sourceTree = "<group>"; };
+		352D47AF1F9F5B42008E1A58 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		46242A0D246587309CC58535 /* Pods_LunchGuyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LunchGuyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6215739716A95EC53174EA9D /* Pods-LunchGuyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LunchGuyUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LunchGuyUITests/Pods-LunchGuyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C4072E3BD0DE081841E829EF /* Pods-LunchGuyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LunchGuyUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LunchGuyUITests/Pods-LunchGuyUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				3525C1081CF3C6FE002114A6 /* Date+LunchGuy.swift */,
+				352D47AF1F9F5B42008E1A58 /* APIError.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -264,7 +267,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		87E5CB78068CEFDF3CCCA078 /* [CP] Embed Pods Frameworks */ = {
@@ -317,6 +320,7 @@
 				3525C1091CF3C6FE002114A6 /* Date+LunchGuy.swift in Sources */,
 				3525C0FD1CF3BC2C002114A6 /* APIWrapper.swift in Sources */,
 				3525C0CE1CF3BA7F002114A6 /* AppDelegate.swift in Sources */,
+				352D47B01F9F5B42008E1A58 /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

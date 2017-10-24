@@ -67,7 +67,7 @@ class RestaurantTableViewController: UITableViewController {
                 self?.restaurants = restaurants
                 self?.tableView.reloadData()
             case let .failure(error):
-                print(error)
+                APIError(error).show()
             }
         }
     }

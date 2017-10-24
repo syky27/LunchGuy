@@ -39,7 +39,7 @@ class APIWrapper {
 			case .restaurants:
 				return "/restaurants.json"
 			case .menu(let restaurant):
-				return "/restaurants/\(restaurant.restaurantID)/menu.json"
+                return "/restaurants/\(restaurant.restaurantID)/menu.json"
 			}
 		}
 
