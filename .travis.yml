@@ -1,5 +1,6 @@
 os: osx
 language: objective-c
+osx_image: xcode9
 
 git:
   submodules: false

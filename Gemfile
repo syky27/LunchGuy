@@ -6,3 +6,4 @@ gem "badge"
 gem 'danger'
 gem 'danger-swiftlint'
 gem 'danger-xcov'
+gem 'cocoapods'
