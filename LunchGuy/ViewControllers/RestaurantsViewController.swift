@@ -23,10 +23,8 @@ enum LayoutStyle: Int {
 class RestaurantsViewController: UIViewController {
 
     private var changeLayoutButton: UIBarButtonItem!
-    private let restaurantControllers = [
-        RestaurantTableViewController(),
-        RestaurantsMapViewController()
-    ]
+    private let restaurantsDataSource = RestaurantsDataSource()
+    private let restaurantControllers: [UIViewController]
 
     private var currentLayout = LayoutStyle.list {
         didSet {
@@ -37,6 +35,19 @@ class RestaurantsViewController: UIViewController {
         }
     }
 
+    init() {
+        self.restaurantControllers = [
+            RestaurantTableViewController(restaurantsDataSource: restaurantsDataSource),
+            RestaurantsMapViewController()
+        ]
+
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -45,8 +56,10 @@ class RestaurantsViewController: UIViewController {
         navigationItem.title = "Restaurace"
         changeLayoutButton = UIBarButtonItem(title: LayoutStyle.map.description, style: .plain,
                                              target: self, action: #selector(changeLayoutHandler))
+        changeLayoutButton.isEnabled = false
         navigationItem.rightBarButtonItem = changeLayoutButton
 
+        restaurantsDataSource.addObserver(self)
         add(controller: controller)
     }
 
@@ -92,5 +105,11 @@ class RestaurantsViewController: UIViewController {
 
         UIView.transition(from: oldController.view, to: newController.view, duration: 1.0,
                           options: .transitionFlipFromLeft, completion: completion)
+    }
+}
+
+extension RestaurantsViewController: RestaurantsObserver {
+    func restaurantsChanged() {
+        changeLayoutButton.isEnabled = !restaurantsDataSource.restaurants.isEmpty
     }
 }
