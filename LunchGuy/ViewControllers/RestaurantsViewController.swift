@@ -8,16 +8,61 @@
 
 import UIKit
 
+enum LayoutStyle: Int {
+    case list
+    case map
+
+    var description: String {
+        switch self {
+        case .list: return "List"
+        case .map: return "Map"
+        }
+    }
+}
+
 class RestaurantsViewController: UIViewController {
 
-    private let restaurantsListController = RestaurantTableViewController()
+    private var changeLayoutButton: UIBarButtonItem!
+    private let restaurantControllers = [
+        RestaurantTableViewController(),
+        RestaurantsMapViewController()
+    ]
+
+    private var currentLayout = LayoutStyle.list {
+        didSet {
+            switch currentLayout {
+            case .list: changeLayoutButton.title = LayoutStyle.map.description
+            case .map: changeLayoutButton.title = LayoutStyle.list.description
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.title = "Restaurace"
+        guard let controller = restaurantControllers.first else { return }
 
-        add(controller: restaurantsListController)
+        navigationItem.title = "Restaurace"
+        changeLayoutButton = UIBarButtonItem(title: LayoutStyle.map.description, style: .plain,
+                                             target: self, action: #selector(changeLayoutHandler))
+        navigationItem.rightBarButtonItem = changeLayoutButton
+
+        add(controller: controller)
+    }
+
+    @objc
+    func changeLayoutHandler() {
+        let oldLayout = currentLayout
+        let newLayout: LayoutStyle
+
+        switch currentLayout {
+        case .map: newLayout = .list
+        case .list: newLayout = .map
+        }
+
+        currentLayout = newLayout
+        changeLayout(from: restaurantControllers[oldLayout.rawValue],
+                     to: restaurantControllers[newLayout.rawValue])
     }
 
     private func add(controller: UIViewController) {
@@ -27,5 +72,25 @@ class RestaurantsViewController: UIViewController {
         view.addSubview(controller.view)
 
         controller.didMove(toParentViewController: self)
+    }
+
+    private func changeLayout(from oldController: UIViewController,
+                              to newController: UIViewController) {
+
+        oldController.willMove(toParentViewController: nil)
+        addChildViewController(newController)
+        view.insertSubview(newController.view, belowSubview: oldController.view)
+        changeLayoutButton.isEnabled = false
+
+        let completion: (Bool) -> Void = { [weak self] _ in
+            oldController.view.removeFromSuperview()
+            oldController.removeFromParentViewController()
+
+            newController.didMove(toParentViewController: self)
+            self?.changeLayoutButton.isEnabled = true
+        }
+
+        UIView.transition(from: oldController.view, to: newController.view, duration: 1.0,
+                          options: .transitionFlipFromLeft, completion: completion)
     }
 }
