@@ -38,7 +38,7 @@ class RestaurantsViewController: UIViewController {
     init() {
         self.restaurantControllers = [
             RestaurantTableViewController(restaurantsDataSource: restaurantsDataSource),
-            RestaurantsMapViewController()
+            RestaurantsMapViewController(restaurantsDataSource: restaurantsDataSource)
         ]
 
         super.init(nibName: nil, bundle: nil)
