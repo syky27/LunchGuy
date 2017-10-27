@@ -22,6 +22,7 @@
 		D245DEFA1F9E8755004BAE89 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = D245DEF91F9E8755004BAE89 /* Menu.swift */; };
 		D245DEFC1F9E875E004BAE89 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D245DEFB1F9E875E004BAE89 /* Meal.swift */; };
 		D25127171FA3C965008449E1 /* RestaurantsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25127161FA3C965008449E1 /* RestaurantsDataSource.swift */; };
+		D251271C1FA3EF93008449E1 /* RestaurantAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D251271B1FA3EF93008449E1 /* RestaurantAnnotation.swift */; };
 		D289BB2B1F9F992A00BD126B /* MealCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D289BB2A1F9F992A00BD126B /* MealCategory.swift */; };
 		D2AE95611FA28DDF00763608 /* RestaurantLocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AE95601FA28DDF00763608 /* RestaurantLocationProvider.swift */; };
 		D2AE95631FA28E5100763608 /* RestaurantStaticLocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AE95621FA28E5100763608 /* RestaurantStaticLocationProvider.swift */; };
@@ -50,6 +51,7 @@
 		D245DEF91F9E8755004BAE89 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		D245DEFB1F9E875E004BAE89 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		D25127161FA3C965008449E1 /* RestaurantsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsDataSource.swift; sourceTree = "<group>"; };
+		D251271B1FA3EF93008449E1 /* RestaurantAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantAnnotation.swift; sourceTree = "<group>"; };
 		D289BB2A1F9F992A00BD126B /* MealCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCategory.swift; sourceTree = "<group>"; };
 		D2AE95601FA28DDF00763608 /* RestaurantLocationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantLocationProvider.swift; sourceTree = "<group>"; };
 		D2AE95621FA28E5100763608 /* RestaurantStaticLocationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantStaticLocationProvider.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				D245DEF91F9E8755004BAE89 /* Menu.swift */,
 				D289BB2A1F9F992A00BD126B /* MealCategory.swift */,
 				D245DEFB1F9E875E004BAE89 /* Meal.swift */,
+				D251271B1FA3EF93008449E1 /* RestaurantAnnotation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				D2AE95611FA28DDF00763608 /* RestaurantLocationProvider.swift in Sources */,
 				D25127171FA3C965008449E1 /* RestaurantsDataSource.swift in Sources */,
 				D245DEF81F9E8749004BAE89 /* Restaurant.swift in Sources */,
+				D251271C1FA3EF93008449E1 /* RestaurantAnnotation.swift in Sources */,
 				3525C1091CF3C6FE002114A6 /* Date+LunchGuy.swift in Sources */,
 				D22EFBE91FA3A4C800844F54 /* RestaurantsViewController.swift in Sources */,
 				3525C0FD1CF3BC2C002114A6 /* APIWrapper.swift in Sources */,
