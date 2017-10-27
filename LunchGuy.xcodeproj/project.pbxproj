@@ -17,6 +17,7 @@
 		352D47B01F9F5B42008E1A58 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352D47AF1F9F5B42008E1A58 /* APIError.swift */; };
 		C541A03DE7E076A065DE7119 /* Pods_LunchGuy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F03A6E386F819E4353682F /* Pods_LunchGuy.framework */; };
 		D22EFBE91FA3A4C800844F54 /* RestaurantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22EFBE81FA3A4C800844F54 /* RestaurantsViewController.swift */; };
+		D22EFBEB1FA3AAAF00844F54 /* RestaurantsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22EFBEA1FA3AAAF00844F54 /* RestaurantsMapViewController.swift */; };
 		D245DEF81F9E8749004BAE89 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D245DEF71F9E8749004BAE89 /* Restaurant.swift */; };
 		D245DEFA1F9E8755004BAE89 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = D245DEF91F9E8755004BAE89 /* Menu.swift */; };
 		D245DEFC1F9E875E004BAE89 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D245DEFB1F9E875E004BAE89 /* Meal.swift */; };
@@ -43,6 +44,7 @@
 		C4072E3BD0DE081841E829EF /* Pods-LunchGuyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LunchGuyUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LunchGuyUITests/Pods-LunchGuyUITests.release.xcconfig"; sourceTree = "<group>"; };
 		CB977E6F098BAF138A2713EE /* Pods-LunchGuy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LunchGuy.release.xcconfig"; path = "Pods/Target Support Files/Pods-LunchGuy/Pods-LunchGuy.release.xcconfig"; sourceTree = "<group>"; };
 		D22EFBE81FA3A4C800844F54 /* RestaurantsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsViewController.swift; sourceTree = "<group>"; };
+		D22EFBEA1FA3AAAF00844F54 /* RestaurantsMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsMapViewController.swift; sourceTree = "<group>"; };
 		D245DEF71F9E8749004BAE89 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		D245DEF91F9E8755004BAE89 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		D245DEFB1F9E875E004BAE89 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				351CFA771CF3D96F00D4146A /* RestaurantTableViewController.swift */,
 				351CFA791CF3DD9E00D4146A /* MenuTableViewController.swift */,
 				D22EFBE81FA3A4C800844F54 /* RestaurantsViewController.swift */,
+				D22EFBEA1FA3AAAF00844F54 /* RestaurantsMapViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				D245DEFA1F9E8755004BAE89 /* Menu.swift in Sources */,
 				D289BB2B1F9F992A00BD126B /* MealCategory.swift in Sources */,
 				351CFA781CF3D96F00D4146A /* RestaurantTableViewController.swift in Sources */,
+				D22EFBEB1FA3AAAF00844F54 /* RestaurantsMapViewController.swift in Sources */,
 				D245DEFC1F9E875E004BAE89 /* Meal.swift in Sources */,
 				D2AE95611FA28DDF00763608 /* RestaurantLocationProvider.swift in Sources */,
 				D245DEF81F9E8749004BAE89 /* Restaurant.swift in Sources */,
