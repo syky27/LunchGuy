@@ -14,7 +14,6 @@ class RestaurantTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Restaurace"
         tableView.tableFooterView = UIView()
 		refreshControl = UIRefreshControl()
 		refreshControl!.backgroundColor = UIColor.white
