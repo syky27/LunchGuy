@@ -9,7 +9,18 @@
 import UIKit
 
 class RestaurantTableViewController: UITableViewController {
-    var restaurants: [Restaurant] = []
+
+    private let restaurantsDataSource: RestaurantsDataSource
+
+    init(restaurantsDataSource: RestaurantsDataSource) {
+        self.restaurantsDataSource = restaurantsDataSource
+
+        super.init(style: .plain)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +34,8 @@ class RestaurantTableViewController: UITableViewController {
 
 		self.tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: "reuseIdentifier")
 
+        restaurantsDataSource.addObserver(self)
+
         loadRestaurants()
     }
 
@@ -33,13 +46,13 @@ class RestaurantTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return restaurants.count
+        return restaurantsDataSource.restaurants.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
-        cell.textLabel?.text = restaurants[indexPath.row].name
+        cell.textLabel?.text = restaurantsDataSource.restaurants[indexPath.row].name
 
         return cell
     }
@@ -49,7 +62,7 @@ class RestaurantTableViewController: UITableViewController {
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let menuViewController = MenuTableViewController()
 
-        menuViewController.restaurant = restaurants[indexPath.row]
+        menuViewController.restaurant = restaurantsDataSource.restaurants[indexPath.row]
 		navigationController?.pushViewController(menuViewController, animated: true)
 	}
 
@@ -63,11 +76,16 @@ class RestaurantTableViewController: UITableViewController {
 
             switch result {
             case let .success(restaurants):
-                self?.restaurants = restaurants
-                self?.tableView.reloadData()
+                self?.restaurantsDataSource.restaurants = restaurants
             case let .failure(error):
                 APIError(error).show()
             }
         }
+    }
+}
+
+extension RestaurantTableViewController: RestaurantsObserver {
+    func restaurantsChanged() {
+        tableView.reloadData()
     }
 }
