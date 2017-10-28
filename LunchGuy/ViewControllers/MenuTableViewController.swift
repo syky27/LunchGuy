@@ -11,10 +11,17 @@ import UIKit
 class MenuTableViewController: UITableViewController {
     var restaurant: Restaurant!
 
+    private var actionButton: UIBarButtonItem!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        actionButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.action,
+                                           target: self, action: #selector(actionButtonHanlder))
+
         tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: "reuseIdentifier2")
-        title = restaurant.name
+        navigationItem.title = restaurant.name
+        navigationItem.rightBarButtonItem = actionButton
 
         tableView.tableFooterView = UIView()
         refreshControl = UIRefreshControl()
@@ -57,6 +64,42 @@ class MenuTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return restaurant.menu?.mealCategories[section].category
+    }
+
+    // MARK: UI callbacks
+
+    @objc
+    func actionButtonHanlder() {
+        let controller = UIAlertController(title: "Choose an app where you want to open selected restaurant.", message: nil, preferredStyle: .actionSheet)
+
+        let urlEscapedRestaurant = restaurant.name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+
+        let actions = [
+            UIAlertAction(title: "Apple Maps", style: .default, handler: { _ in
+                let url = URL(string: "http://maps.apple.com/?q=\(urlEscapedRestaurant)")!
+                if UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.openURL(url)
+                }
+            }),
+            UIAlertAction(title: "Google Maps", style: .default, handler: { _ in
+                let url = URL(string: "comgooglemaps://?q=\(urlEscapedRestaurant)")!
+                if UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.openURL(url)
+                }
+            }),
+            UIAlertAction(title: "Yelp", style: .default, handler: { _ in
+                let url = URL(string: "yelp4:///search?terms=\(urlEscapedRestaurant)")!
+
+                if UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.openURL(url)
+                }
+            }),
+            UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        ]
+
+        actions.forEach { controller.addAction($0) }
+
+        present(controller, animated: true, completion: nil)
     }
 
     // MARK: - Network logic
