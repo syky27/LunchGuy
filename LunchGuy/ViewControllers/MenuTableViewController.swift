@@ -72,32 +72,24 @@ class MenuTableViewController: UITableViewController {
     func actionButtonHanlder() {
         let controller = UIAlertController(title: "Choose an app where you want to open selected restaurant.", message: nil, preferredStyle: .actionSheet)
 
-        let urlEscapedRestaurant = restaurant.name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-
-        let actions = [
-            UIAlertAction(title: "Apple Maps", style: .default, handler: { _ in
-                let url = URL(string: "http://maps.apple.com/?q=\(urlEscapedRestaurant)")!
-                if UIApplication.shared.canOpenURL(url) {
-                    UIApplication.shared.openURL(url)
-                }
-            }),
-            UIAlertAction(title: "Google Maps", style: .default, handler: { _ in
-                let url = URL(string: "comgooglemaps://?q=\(urlEscapedRestaurant)")!
-                if UIApplication.shared.canOpenURL(url) {
-                    UIApplication.shared.openURL(url)
-                }
-            }),
-            UIAlertAction(title: "Yelp", style: .default, handler: { _ in
-                let url = URL(string: "yelp4:///search?terms=\(urlEscapedRestaurant)")!
-
-                if UIApplication.shared.canOpenURL(url) {
-                    UIApplication.shared.openURL(url)
-                }
-            }),
-            UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let externalApps: [ExternalApp] = [
+            AppleMapsApp.search(place: restaurant.name),
+            GoogleMapsApp.search(place: restaurant.name),
+            YelpApp.search(place: restaurant.name)
         ]
 
-        actions.forEach { controller.addAction($0) }
+        // Add only apps which are actually installed
+        externalApps.flatMap { app -> UIAlertAction? in
+            guard UIApplication.shared.canOpenURL(app.urlScheme) else { return nil }
+
+            return UIAlertAction(title: app.displayName, style: .default) { _ in
+                UIApplication.shared.openURL(app.deepLink)
+            }
+        }
+        .forEach { controller.addAction($0) }
+
+        // Add cancel action
+        controller.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
 
         present(controller, animated: true, completion: nil)
     }
