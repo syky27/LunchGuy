@@ -27,6 +27,7 @@
 		D25127211FA4D157008449E1 /* GoogleMapsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25127201FA4D157008449E1 /* GoogleMapsApp.swift */; };
 		D25127231FA4D1C8008449E1 /* AppleMapsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25127221FA4D1C8008449E1 /* AppleMapsApp.swift */; };
 		D25127251FA4D1DD008449E1 /* YelpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25127241FA4D1DD008449E1 /* YelpApp.swift */; };
+		D25127271FA65A88008449E1 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D25127261FA65A88008449E1 /* Settings.bundle */; };
 		D289BB2B1F9F992A00BD126B /* MealCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D289BB2A1F9F992A00BD126B /* MealCategory.swift */; };
 		D2AE95611FA28DDF00763608 /* RestaurantLocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AE95601FA28DDF00763608 /* RestaurantLocationProvider.swift */; };
 		D2AE95631FA28E5100763608 /* RestaurantStaticLocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AE95621FA28E5100763608 /* RestaurantStaticLocationProvider.swift */; };
@@ -60,6 +61,7 @@
 		D25127201FA4D157008449E1 /* GoogleMapsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsApp.swift; sourceTree = "<group>"; };
 		D25127221FA4D1C8008449E1 /* AppleMapsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMapsApp.swift; sourceTree = "<group>"; };
 		D25127241FA4D1DD008449E1 /* YelpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpApp.swift; sourceTree = "<group>"; };
+		D25127261FA65A88008449E1 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		D289BB2A1F9F992A00BD126B /* MealCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCategory.swift; sourceTree = "<group>"; };
 		D2AE95601FA28DDF00763608 /* RestaurantLocationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantLocationProvider.swift; sourceTree = "<group>"; };
 		D2AE95621FA28E5100763608 /* RestaurantStaticLocationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantStaticLocationProvider.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 		3525C0C11CF3BA7F002114A6 = {
 			isa = PBXGroup;
 			children = (
+				D25127261FA65A88008449E1 /* Settings.bundle */,
 				3525C0CC1CF3BA7F002114A6 /* LunchGuy */,
 				3525C0CB1CF3BA7F002114A6 /* Products */,
 				B60B3C31A36A598ACFF21781 /* Pods */,
@@ -258,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3525C0D51CF3BA7F002114A6 /* Assets.xcassets in Resources */,
+				D25127271FA65A88008449E1 /* Settings.bundle in Resources */,
 				3520D8A81F89AEF50025610B /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
