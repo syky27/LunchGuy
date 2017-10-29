@@ -3,7 +3,6 @@ if !git.modified_files.include?("CHANGELOG.md") && github.branch_for_base == "ma
   fail("Please include a CHANGELOG entry.")
 end
 
-
 if !git.modified_files.include?("CHANGELOG.md") && github.branch_for_base == "dev"
   warn("You might want to include a CHANGELOG entry.")
 end
@@ -14,10 +13,6 @@ end
 
 if git.commits.any? { |c| c.message.include?('fixup!') || c.message.include?('squash!') }
   fail('This PR contains commits marked as squash or fixup. Please perform an interactive rebase to apply the changes.')
-end
-
-if git.diff.include?("@objc dynamic var")
-  warn 'Possible Database Migration needed!'
 end
 
 swiftlint.config_file = '.swiftlint.yml'
