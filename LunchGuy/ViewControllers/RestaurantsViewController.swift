@@ -103,7 +103,7 @@ class RestaurantsViewController: UIViewController {
             self?.changeLayoutButton.isEnabled = true
         }
 
-        UIView.transition(from: oldController.view, to: newController.view, duration: 1.0,
+        UIView.transition(from: oldController.view, to: newController.view, duration: 0.5,
                           options: .transitionFlipFromLeft, completion: completion)
     }
 }
