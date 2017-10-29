@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		D2C9364E1FA67AFC00A4C9E0 /* OSS Licenses */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = D2C936511FA67AFC00A4C9E0 /* Build configuration list for PBXAggregateTarget "OSS Licenses" */;
+			buildPhases = (
+				D2C936521FA67B0F00A4C9E0 /* Generate OSS Licenses plist */,
+			);
+			dependencies = (
+			);
+			name = "OSS Licenses";
+			productName = "OSS Licenses";
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		351CFA781CF3D96F00D4146A /* RestaurantTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351CFA771CF3D96F00D4146A /* RestaurantTableViewController.swift */; };
 		351CFA7A1CF3DD9E00D4146A /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351CFA791CF3DD9E00D4146A /* MenuTableViewController.swift */; };
@@ -235,6 +249,10 @@
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Manual;
 					};
+					D2C9364E1FA67AFC00A4C9E0 = {
+						CreatedOnToolsVersion = 9.0.1;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 3525C0C51CF3BA7F002114A6 /* Build configuration list for PBXProject "LunchGuy" */;
@@ -251,6 +269,7 @@
 			projectRoot = "";
 			targets = (
 				3525C0C91CF3BA7F002114A6 /* LunchGuy */,
+				D2C9364E1FA67AFC00A4C9E0 /* OSS Licenses */,
 			);
 		};
 /* End PBXProject section */
@@ -347,6 +366,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LunchGuy/Pods-LunchGuy-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		D2C936521FA67B0F00A4C9E0 /* Generate OSS Licenses plist */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate OSS Licenses plist";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which license-plist >/dev/null; then\n    license-plist --add-version-numbers --suppress-opening-directory --output-path Settings.bundle\nelse\n    echo \"error: license-plist not installed, download fromhttps://github.com/mono0926/LicensePlist\"\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -529,6 +562,22 @@
 			};
 			name = Release;
 		};
+		D2C9364F1FA67AFC00A4C9E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D2C936501FA67AFC00A4C9E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -546,6 +595,15 @@
 			buildConfigurations = (
 				3525C0F31CF3BA7F002114A6 /* Debug */,
 				3525C0F41CF3BA7F002114A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D2C936511FA67AFC00A4C9E0 /* Build configuration list for PBXAggregateTarget "OSS Licenses" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2C9364F1FA67AFC00A4C9E0 /* Debug */,
+				D2C936501FA67AFC00A4C9E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
