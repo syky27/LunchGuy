@@ -11,6 +11,11 @@ import MapKit
 
 class RestaurantsMapViewController: UIViewController, MKMapViewDelegate {
 
+    private static let defaultMapRegion = MKCoordinateRegion(
+        center: .init(latitude: 50.104591823066585, longitude: 14.392029968806042),
+        span: .init(latitudeDelta: 0.014363891112303406, longitudeDelta: 0.013927242281056351)
+    )
+
     private let mapView = MKMapView()
     private let locationProvider = RestaurantStaticLocationProvider()
     private let restaurantsDataSource: RestaurantsDataSource
@@ -47,6 +52,7 @@ class RestaurantsMapViewController: UIViewController, MKMapViewDelegate {
         super.viewDidLoad()
 
         mapView.delegate = self
+        mapView.setRegion(RestaurantsMapViewController.defaultMapRegion, animated: false)
 
         locateRestaurants()
     }
