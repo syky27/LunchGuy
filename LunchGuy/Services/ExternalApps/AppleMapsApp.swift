@@ -13,7 +13,7 @@ enum AppleMapsApp: ExternalApp {
 
     var urlScheme: URL { return URL(string: "http://maps.apple.com")! }
 
-    var displayName: String { return "Apple Maps" }
+    var displayName: String { return L10n.ExternalApp.appleMaps }
 
     var deepLink: URL {
         switch self {

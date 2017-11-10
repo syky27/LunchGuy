@@ -14,8 +14,8 @@ enum LayoutStyle: Int {
 
     var description: String {
         switch self {
-        case .list: return "List"
-        case .map: return "Map"
+        case .list: return L10n.Restaurants.list
+        case .map: return L10n.Restaurants.map
         }
     }
 }
@@ -53,7 +53,7 @@ class RestaurantsViewController: UIViewController {
 
         guard let controller = restaurantControllers.first else { return }
 
-        navigationItem.title = "Restaurace"
+        navigationItem.title = L10n.Restaurants.title
         changeLayoutButton = UIBarButtonItem(title: LayoutStyle.map.description, style: .plain,
                                              target: self, action: #selector(changeLayoutHandler))
         changeLayoutButton.isEnabled = false

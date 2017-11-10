@@ -57,7 +57,7 @@ class MenuTableViewController: UITableViewController {
         cell.textLabel?.numberOfLines = 0
         cell.textLabel?.frame = CGRect(x: cell.textLabel!.frame.origin.x, y: cell.textLabel!.frame.origin.y,
                                        width: 50, height: cell.textLabel!.frame.size.height)
-        cell.detailTextLabel?.text = meal?.price.flatMap { "\($0) Kč" } ?? "Cena není známa"
+        cell.detailTextLabel?.text = meal?.price.flatMap(L10n.Meal.price) ?? L10n.Meal.priceUnknown
 
         return cell
     }
@@ -70,7 +70,7 @@ class MenuTableViewController: UITableViewController {
 
     @objc
     func actionButtonHanlder() {
-        let controller = UIAlertController(title: "Choose an app where you want to open selected restaurant.", message: nil, preferredStyle: .actionSheet)
+        let controller = UIAlertController(title: L10n.Meal.openInApp, message: nil, preferredStyle: .actionSheet)
 
         let externalApps: [ExternalApp] = [
             AppleMapsApp.search(place: restaurant.name),
@@ -89,7 +89,7 @@ class MenuTableViewController: UITableViewController {
         .forEach { controller.addAction($0) }
 
         // Add cancel action
-        controller.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        controller.addAction(UIAlertAction(title: L10n.General.cancel, style: .cancel, handler: nil))
 
         present(controller, animated: true, completion: nil)
     }

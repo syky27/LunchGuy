@@ -13,7 +13,7 @@ enum GoogleMapsApp: ExternalApp {
 
     var urlScheme: URL { return URL(string: "comgooglemaps://")! }
 
-    var displayName: String { return "Google Maps" }
+    var displayName: String { return L10n.ExternalApp.googleMaps }
 
     var deepLink: URL {
         switch self {

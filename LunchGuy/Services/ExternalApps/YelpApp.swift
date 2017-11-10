@@ -13,7 +13,7 @@ enum YelpApp: ExternalApp {
 
     var urlScheme: URL { return URL(string: "yelp4://")! }
 
-    var displayName: String { return "Yelp" }
+    var displayName: String { return L10n.ExternalApp.yelp }
 
     var deepLink: URL {
         switch self {

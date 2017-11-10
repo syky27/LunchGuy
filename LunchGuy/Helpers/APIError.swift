@@ -15,11 +15,11 @@ struct APIError: Error {
 
     init(json: [String: Any]) {
         if let error = json["error"] as? [String: Any] {
-            title = error["code"] as? String ?? "Error"
-            message = error["message"] as? String ?? "Unknown Error, try again."
+            title = error["code"] as? String ?? L10n.Error.title
+            message = error["message"] as? String ?? L10n.Error.unknown
         } else {
-            title = "Error"
-            message = "Could not parse API response"
+            title = L10n.Error.title
+            message = L10n.Error.invalidResponse
         }
     }
 
@@ -29,13 +29,13 @@ struct APIError: Error {
     }
 
     init(_ error: Error) {
-        title = "Error"
+        title = L10n.Error.title
         message = error.localizedDescription
     }
 
     func show() {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        alert.addAction(UIAlertAction(title: L10n.General.ok, style: .default))
         alert.show()
     }
 
