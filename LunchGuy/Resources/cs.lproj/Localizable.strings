@@ -6,26 +6,26 @@
   Copyright © 2017 AJTY, s.r.o. All rights reserved.
 */
 
-### App-wide Strings
+/// App-wide Strings
 "general.cancel" = "Zrušit";
 "general.ok" = "Ok";
 
-### Errors
+/// Errors
 "error.title" = "Chyba";
 "error.unknown" = "Neznámá chyba, zkuste to znovu.";
 "error.invalid_response" = "Neočekávaná chyba serveru.";
 
-### External Apps
+/// External Apps
 "external_app.google_maps" = "Google Maps";
 "external_app.apple_maps" = "Apple Maps";
 "external_app.yelp" = "Yelp";
 
-### Restaurants
+/// Restaurants
 "restaurants.title" = "Restaurace";
 "restaurants.list" = "Seznam";
 "restaurants.map" = "Mapa";
 
-### Meal
+/// Meal
 "meal.price_unknown" = "Cena není známa";
 "meal.price" = "%d Kč";
 "meal.open_in_app" = "Vyberte aplikaci, ve které chcete restauraci otevřít.";
