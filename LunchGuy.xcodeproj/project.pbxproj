@@ -132,11 +132,11 @@
 		3525C0CC1CF3BA7F002114A6 /* LunchGuy */ = {
 			isa = PBXGroup;
 			children = (
-				D24D031B1FB612BB0047B028 /* Resources */,
 				351CFA761CF3D95600D4146A /* ViewControllers */,
 				3525C1071CF3C6E9002114A6 /* Helpers */,
 				3525C0FE1CF3BDA1002114A6 /* Model */,
 				3525C0FB1CF3BC21002114A6 /* Services */,
+				D24D031B1FB612BB0047B028 /* Resources */,
 				3525C0CD1CF3BA7F002114A6 /* AppDelegate.swift */,
 			);
 			path = LunchGuy;
@@ -201,6 +201,7 @@
 		D24D031B1FB612BB0047B028 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D2FC04F61FB63F3E00A4E326 /* Generated */,
 				3525C0D41CF3BA7F002114A6 /* Assets.xcassets */,
 				3520D8A71F89AEF40025610B /* LaunchScreen.storyboard */,
 				3525C0D91CF3BA7F002114A6 /* Info.plist */,
@@ -218,6 +219,13 @@
 				D25127241FA4D1DD008449E1 /* YelpApp.swift */,
 			);
 			path = ExternalApps;
+			sourceTree = "<group>";
+		};
+		D2FC04F61FB63F3E00A4E326 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Generated;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
