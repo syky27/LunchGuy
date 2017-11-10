@@ -45,6 +45,7 @@
 		D289BB2B1F9F992A00BD126B /* MealCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D289BB2A1F9F992A00BD126B /* MealCategory.swift */; };
 		D2AE95611FA28DDF00763608 /* RestaurantLocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AE95601FA28DDF00763608 /* RestaurantLocationProvider.swift */; };
 		D2AE95631FA28E5100763608 /* RestaurantStaticLocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AE95621FA28E5100763608 /* RestaurantStaticLocationProvider.swift */; };
+		D2FC04EF1FB638B500A4E326 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D2FC04F11FB638B500A4E326 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,8 @@
 		D289BB2A1F9F992A00BD126B /* MealCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCategory.swift; sourceTree = "<group>"; };
 		D2AE95601FA28DDF00763608 /* RestaurantLocationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantLocationProvider.swift; sourceTree = "<group>"; };
 		D2AE95621FA28E5100763608 /* RestaurantStaticLocationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantStaticLocationProvider.swift; sourceTree = "<group>"; };
+		D2FC04F01FB638B500A4E326 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D2FC04F21FB638EF00A4E326 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E6F55551A8E25408DCD24251 /* Pods-LunchGuy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LunchGuy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LunchGuy/Pods-LunchGuy.debug.xcconfig"; sourceTree = "<group>"; };
 		F8CCE357518BEBB622E0B2A2 /* Pods-LunchGuyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LunchGuyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LunchGuyTests/Pods-LunchGuyTests.release.xcconfig"; sourceTree = "<group>"; };
 		FB8CF7DCE0695EB1DEEE28B7 /* Pods_LunchGuyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LunchGuyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -201,6 +204,7 @@
 				3525C0D41CF3BA7F002114A6 /* Assets.xcassets */,
 				3520D8A71F89AEF40025610B /* LaunchScreen.storyboard */,
 				3525C0D91CF3BA7F002114A6 /* Info.plist */,
+				D2FC04F11FB638B500A4E326 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -270,6 +274,7 @@
 			knownRegions = (
 				en,
 				Base,
+				cs,
 			);
 			mainGroup = 3525C0C11CF3BA7F002114A6;
 			productRefGroup = 3525C0CB1CF3BA7F002114A6 /* Products */;
@@ -288,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3525C0D51CF3BA7F002114A6 /* Assets.xcassets in Resources */,
+				D2FC04EF1FB638B500A4E326 /* Localizable.strings in Resources */,
 				D25127271FA65A88008449E1 /* Settings.bundle in Resources */,
 				3520D8A81F89AEF50025610B /* LaunchScreen.storyboard in Resources */,
 			);
@@ -421,11 +427,24 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		D2FC04F11FB638B500A4E326 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D2FC04F01FB638B500A4E326 /* en */,
+				D2FC04F21FB638EF00A4E326 /* cs */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		3525C0F01CF3BA7F002114A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -480,6 +499,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
