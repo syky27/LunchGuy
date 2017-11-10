@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
+		D274D3471FB64C0C00B6B31C /* Localization */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = D274D34A1FB64C0C00B6B31C /* Build configuration list for PBXAggregateTarget "Localization" */;
+			buildPhases = (
+				D274D34B1FB64C1900B6B31C /* Generate Localization Enum */,
+			);
+			dependencies = (
+			);
+			name = Localization;
+			productName = Localization;
+		};
 		D2C9364E1FA67AFC00A4C9E0 /* OSS Licenses */ = {
 			isa = PBXAggregateTarget;
 			buildConfigurationList = D2C936511FA67AFC00A4C9E0 /* Build configuration list for PBXAggregateTarget "OSS Licenses" */;
@@ -272,6 +283,10 @@
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Manual;
 					};
+					D274D3471FB64C0C00B6B31C = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
 					D2C9364E1FA67AFC00A4C9E0 = {
 						CreatedOnToolsVersion = 9.0.1;
 						ProvisioningStyle = Automatic;
@@ -294,6 +309,7 @@
 			targets = (
 				3525C0C91CF3BA7F002114A6 /* LunchGuy */,
 				D2C9364E1FA67AFC00A4C9E0 /* OSS Licenses */,
+				D274D3471FB64C0C00B6B31C /* Localization */,
 			);
 		};
 /* End PBXProject section */
@@ -392,6 +408,20 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LunchGuy/Pods-LunchGuy-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D274D34B1FB64C1900B6B31C /* Generate Localization Enum */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate Localization Enum";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftgen >/dev/null; then\n    swiftgen strings --template structured-swift4 LunchGuy/Resources/cs.lproj/Localizable.strings --output LunchGuy/Resources/Generated/LocalizableStrings.Generated.swift\nelse\n    echo \"error: swiftgen not installed, download from https://github.com/SwiftGen/SwiftGen\"\nfi";
+		};
 		D2C936521FA67B0F00A4C9E0 /* Generate OSS Licenses plist */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -404,7 +434,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which license-plist >/dev/null; then\n    license-plist --add-version-numbers --suppress-opening-directory --output-path Settings.bundle\nelse\n    echo \"error: license-plist not installed, download fromhttps://github.com/mono0926/LicensePlist\"\nfi";
+			shellScript = "if which license-plist >/dev/null; then\n    license-plist --add-version-numbers --suppress-opening-directory --output-path Settings.bundle\nelse\n    echo \"error: license-plist not installed, download from https://github.com/mono0926/LicensePlist\"\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -602,6 +632,22 @@
 			};
 			name = Release;
 		};
+		D274D3481FB64C0C00B6B31C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D274D3491FB64C0C00B6B31C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		D2C9364F1FA67AFC00A4C9E0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -635,6 +681,15 @@
 			buildConfigurations = (
 				3525C0F31CF3BA7F002114A6 /* Debug */,
 				3525C0F41CF3BA7F002114A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D274D34A1FB64C0C00B6B31C /* Build configuration list for PBXAggregateTarget "Localization" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D274D3481FB64C0C00B6B31C /* Debug */,
+				D274D3491FB64C0C00B6B31C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
