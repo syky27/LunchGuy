@@ -1,0 +1,31 @@
+/* 
+  Localizable.strings
+  LunchGuy
+
+  Created by Josef Dolezal on 10/11/2017.
+  Copyright © 2017 AJTY, s.r.o. All rights reserved.
+*/
+
+### App-wide Strings
+"general.cancel" = "Zrušit";
+"general.ok" = "Ok";
+
+### Errors
+"error.title" = "Chyba";
+"error.unknown" = "Neznámá chyba, zkuste to znovu.";
+"error.invalid_response" = "Neočekávaná chyba serveru.";
+
+### External Apps
+"external_app.google_maps" = "Google Maps";
+"external_app.apple_maps" = "Apple Maps";
+"external_app.yelp" = "Yelp";
+
+### Restaurants
+"restaurants.title" = "Restaurace";
+"restaurants.list" = "Seznam";
+"restaurants.map" = "Mapa";
+
+### Meal
+"meal.price_unknown" = "Cena není známa";
+"meal.price" = "%d Kč";
+"meal.open_in_app" = "Vyberte aplikaci, ve které chcete restauraci otevřít.";
