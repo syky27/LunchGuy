@@ -46,6 +46,7 @@
 		D2AE95611FA28DDF00763608 /* RestaurantLocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AE95601FA28DDF00763608 /* RestaurantLocationProvider.swift */; };
 		D2AE95631FA28E5100763608 /* RestaurantStaticLocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AE95621FA28E5100763608 /* RestaurantStaticLocationProvider.swift */; };
 		D2FC04EF1FB638B500A4E326 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D2FC04F11FB638B500A4E326 /* Localizable.strings */; };
+		D2FC04F81FB63F6700A4E326 /* LocalizableStrings.Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FC04F71FB63F6700A4E326 /* LocalizableStrings.Generated.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		D2AE95621FA28E5100763608 /* RestaurantStaticLocationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantStaticLocationProvider.swift; sourceTree = "<group>"; };
 		D2FC04F01FB638B500A4E326 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D2FC04F21FB638EF00A4E326 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D2FC04F71FB63F6700A4E326 /* LocalizableStrings.Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizableStrings.Generated.swift; sourceTree = "<group>"; };
 		E6F55551A8E25408DCD24251 /* Pods-LunchGuy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LunchGuy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LunchGuy/Pods-LunchGuy.debug.xcconfig"; sourceTree = "<group>"; };
 		F8CCE357518BEBB622E0B2A2 /* Pods-LunchGuyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LunchGuyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LunchGuyTests/Pods-LunchGuyTests.release.xcconfig"; sourceTree = "<group>"; };
 		FB8CF7DCE0695EB1DEEE28B7 /* Pods_LunchGuyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LunchGuyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -224,6 +226,7 @@
 		D2FC04F61FB63F3E00A4E326 /* Generated */ = {
 			isa = PBXGroup;
 			children = (
+				D2FC04F71FB63F6700A4E326 /* LocalizableStrings.Generated.swift */,
 			);
 			path = Generated;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 				D22EFBEB1FA3AAAF00844F54 /* RestaurantsMapViewController.swift in Sources */,
 				D245DEFC1F9E875E004BAE89 /* Meal.swift in Sources */,
 				D251271F1FA4D11D008449E1 /* ExternalApp.swift in Sources */,
+				D2FC04F81FB63F6700A4E326 /* LocalizableStrings.Generated.swift in Sources */,
 				D25127251FA4D1DD008449E1 /* YelpApp.swift in Sources */,
 				D2AE95611FA28DDF00763608 /* RestaurantLocationProvider.swift in Sources */,
 				D25127171FA3C965008449E1 /* RestaurantsDataSource.swift in Sources */,

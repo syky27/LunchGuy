@@ -6,26 +6,26 @@
   Copyright © 2017 AJTY, s.r.o. All rights reserved.
 */
 
-### App-wide Strings
+/// App-wide Strings
 "general.cancel" = "Cancel";
 "general.ok" = "Ok";
 
-### Errors
+/// Errors
 "error.title" = "Error";
 "error.unknown" = "Unknown Error, try again.";
 "error.invalid_response" = "Could not parse API response.";
 
-### External Apps
+/// External Apps
 "external_app.google_maps" = "Google Maps";
 "external_app.apple_maps" = "Apple Maps";
 "external_app.yelp" = "Yelp";
 
-### Restaurants
+/// Restaurants
 "restaurants.title" = "Restaurants";
 "restaurants.list" = "List";
 "restaurants.map" = "Map";
 
-### Meal
+/// Meal
 "meal.price_unknown" = "Price unknown";
 "meal.price" = "%d Kč";
 "meal.open_in_app" = "Choose an app where you want to open selected restaurant.";
