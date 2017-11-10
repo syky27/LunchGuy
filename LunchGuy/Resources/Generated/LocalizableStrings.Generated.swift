@@ -26,6 +26,23 @@ enum L10n {
     static let yelp = L10n.tr("Localizable", "external_app.yelp")
   }
 
+  enum ExternalStrings {
+    /// Dezerty
+    static let desserts = L10n.tr("Localizable", "external_strings.Desserts")
+    /// Hlavní jídla
+    static let hlavníJídla = L10n.tr("Localizable", "external_strings.Hlavní jídla")
+    /// external_strings.%@
+    static func key(_ p1: String) -> String {
+      return L10n.tr("Localizable", "external_strings.key", p1)
+    }
+    /// Menu
+    static let menu = L10n.tr("Localizable", "external_strings.Menu")
+    /// Polévky
+    static let polévky = L10n.tr("Localizable", "external_strings.Polévky")
+    /// Saláty
+    static let saláty = L10n.tr("Localizable", "external_strings.Saláty")
+  }
+
   enum General {
     /// Zrušit
     static let cancel = L10n.tr("Localizable", "general.cancel")

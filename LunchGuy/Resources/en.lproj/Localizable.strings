@@ -29,3 +29,11 @@
 "meal.price_unknown" = "Price unknown";
 "meal.price" = "%d Kč";
 "meal.open_in_app" = "Choose an app where you want to open selected restaurant.";
+
+/// External Source Strings
+"external_strings.key" = "external_strings.%@";
+"external_strings.Hlavní jídla" = "Main courses";
+"external_strings.Polévky" = "Soups";
+"external_strings.Menu" = "Menu";
+"external_strings.Dezerty" = "Desserts";
+"external_strings.Saláty" = "Salads";
