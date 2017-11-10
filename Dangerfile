@@ -22,5 +22,12 @@ if podfile_updated && no_license_updated
   warn("The `Podfile` was updated, but there were no changes in `Settings.bundle`. Did you forget to generate OSS license plists?")
 end
 
+cs_localization_updated = !(git.modified_files.grep(/cs\.lproj/).empty?)
+en_localization_updated = !(git.modified_files.grep(/en\.lproj/).empty?)
+
+if (cs_localization_updated && !en_localization_updated) || (!cs_localization_updated && en_localization_updated)
+  warn("It looks like you updated either CS or EN localization file. You forget to update the other one, didn't you?")
+end
+
 swiftlint.config_file = '.swiftlint.yml'
 swiftlint.lint_files
