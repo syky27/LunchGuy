@@ -63,7 +63,11 @@ class MenuTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return restaurant.menu?.mealCategories[section].category
+        guard let category = restaurant.menu?.mealCategories[section].category else { return nil }
+
+        let translationIdentifier = L10n.ExternalStrings.key(category)
+
+        return NSLocalizedString(translationIdentifier, comment: category)
     }
 
     // MARK: UI callbacks
