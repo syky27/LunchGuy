@@ -129,14 +129,12 @@
 		3525C0CC1CF3BA7F002114A6 /* LunchGuy */ = {
 			isa = PBXGroup;
 			children = (
+				D24D031B1FB612BB0047B028 /* Resources */,
 				351CFA761CF3D95600D4146A /* ViewControllers */,
 				3525C1071CF3C6E9002114A6 /* Helpers */,
 				3525C0FE1CF3BDA1002114A6 /* Model */,
 				3525C0FB1CF3BC21002114A6 /* Services */,
 				3525C0CD1CF3BA7F002114A6 /* AppDelegate.swift */,
-				3525C0D41CF3BA7F002114A6 /* Assets.xcassets */,
-				3525C0D91CF3BA7F002114A6 /* Info.plist */,
-				3520D8A71F89AEF40025610B /* LaunchScreen.storyboard */,
 			);
 			path = LunchGuy;
 			sourceTree = "<group>";
@@ -195,6 +193,16 @@
 				C4072E3BD0DE081841E829EF /* Pods-LunchGuyUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		D24D031B1FB612BB0047B028 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3525C0D41CF3BA7F002114A6 /* Assets.xcassets */,
+				3520D8A71F89AEF40025610B /* LaunchScreen.storyboard */,
+				3525C0D91CF3BA7F002114A6 /* Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		D251271D1FA4D108008449E1 /* ExternalApps */ = {
@@ -526,7 +534,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1.0.4;
 				DEVELOPMENT_TEAM = CDMJRT8WJB;
-				INFOPLIST_FILE = LunchGuy/Info.plist;
+				INFOPLIST_FILE = LunchGuy/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cz.ajty.LunchGuy;
@@ -549,7 +557,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1.0.4;
 				DEVELOPMENT_TEAM = CDMJRT8WJB;
-				INFOPLIST_FILE = LunchGuy/Info.plist;
+				INFOPLIST_FILE = LunchGuy/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cz.ajty.LunchGuy;
